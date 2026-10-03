@@ -404,6 +404,16 @@
   align-self: stretch !important;
 }
 
+.contact-info-card p,
+.contact-info-card .contact-card-body p,
+.contact-info-card .contact-card-body div,
+.contact-info-card .contact-card-body span,
+.contact-info-card .contact-card-body a {
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 .contact-info-card > div:first-child {
   display: flex !important;
   flex-direction: column !important;
@@ -424,11 +434,116 @@
   flex-direction: column !important;
   justify-content: center !important;
   flex: 1 1 auto !important;
+  margin-bottom: 0 !important;
+  gap: 0.5rem !important;
+}
+
+.contact-info-card .contact-card-body > div {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  min-height: 1.75rem !important;
 }
 
 .contact-info-card > div:last-child {
   margin-top: auto !important;
   flex-shrink: 0 !important;
+  text-align: center !important;
 }
+
+.contact-info-card > div:last-child p {
+  text-align: center !important;
+  margin-bottom: 0 !important;
+}
+
+/* iPad & Tablet Contact Card Alignment & Breathing Room */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact-info-card {
+    padding: 1.25rem 0.875rem !important;
+  }
+  .contact-info-card h3 {
+    font-size: 1.125rem !important;
+    min-height: 2.25rem !important;
+  }
+  .contact-info-card .contact-card-body {
+    min-height: 5.25rem !important;
+    gap: 0.4rem !important;
+  }
+  .contact-info-card .contact-card-body > div {
+    min-height: 1.6rem !important;
+  }
+  .contact-info-card .contact-card-body span,
+  .contact-info-card .contact-card-body p,
+  .contact-info-card .contact-card-body a {
+    font-size: 10.5px !important;
+  }
+  .contact-info-card > div:last-child p {
+    font-size: 10.5px !important;
+  }
+}
+
+/* ==========================================================================
+   LOGIN PORTAL SPLIT ARCHITECTURE: LEFT SHOWCASE & RIGHT FORM
+   ========================================================================== */
+.login-portal-card {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  flex-direction: unset !important;
+  height: auto !important;
+  width: 100% !important;
+}
+
+.login-portal-card p,
+.login-portal-card span,
+.login-portal-card div {
+  flex-grow: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .login-portal-card {
+    display: grid !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+  }
+
+  .login-portal-showcase {
+    grid-column: span 5 / span 5 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+  }
+
+  .login-portal-form-wrapper {
+    grid-column: span 7 / span 7 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .login-portal-showcase {
+    padding: 1.75rem 1.5rem !important;
+  }
+  .login-portal-form-wrapper {
+    padding: 1.75rem 1.5rem !important;
+  }
+  .login-portal-showcase h2,
+  .login-portal-form-wrapper h1 {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Hide header login button on Mobile & Tablet viewports (already in mobile menu drawer) */
+@media (max-width: 1023px) {
+  .header-login-btn {
+    display: none !important;
+  }
+}
+
+
 
 

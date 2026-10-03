@@ -132,6 +132,64 @@ html.light #mobile-menu-backdrop {
   background-color: rgba(26, 11, 6, 0.45);
 }
 
+/* ==========================================================================
+   MOBILE MENU NAVIGATION LINKS (INTERACTIVE HIGHLIGHTS & STATES)
+   ========================================================================== */
+.mobile-nav-link {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 0.65rem 0.85rem !important;
+  border-radius: 0.5rem !important;
+  color: #FFF4D6 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.22s ease-in-out !important;
+  border-bottom: 1px solid rgba(232, 199, 122, 0.12) !important;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus-visible {
+  color: #E8C77A !important;
+  background-color: rgba(232, 199, 122, 0.08) !important;
+  padding-left: 1.15rem !important;
+}
+
+.mobile-nav-link.active {
+  color: #E8C77A !important;
+  font-weight: 700 !important;
+  background-color: rgba(232, 199, 122, 0.15) !important;
+  border-left: 3px solid #E8C77A !important;
+  border-bottom-color: rgba(232, 199, 122, 0.25) !important;
+  padding-left: 1.15rem !important;
+}
+
+#mobile-home-btn svg {
+  transition: transform 0.25s ease !important;
+}
+
+#mobile-home-submenu a {
+  display: block !important;
+  padding: 0.5rem 0.85rem !important;
+  border-radius: 0.375rem !important;
+  color: #FFF4D6 !important;
+  transition: all 0.2s ease !important;
+}
+
+#mobile-home-submenu a:hover {
+  color: #E8C77A !important;
+  background-color: rgba(232, 199, 122, 0.1) !important;
+  padding-left: 1.1rem !important;
+}
+
+#mobile-home-submenu a.active {
+  color: #E8C77A !important;
+  font-weight: 700 !important;
+  background-color: rgba(232, 199, 122, 0.16) !important;
+  border-left: 2px solid #E8C77A !important;
+  padding-left: 1.1rem !important;
+}
+
 /* Light Mode Mobile Drawer — 100% Ultra High-Contrast, Crystal Clear Typography & Borders */
 html.light #mobile-menu-drawer,
 html.light .mobile-drawer-fixed {
@@ -183,7 +241,9 @@ html.light .mobile-drawer-fixed .mobile-nav-link:hover,
 html.light .mobile-drawer-fixed a:not(.btn-gold):hover,
 html.light .mobile-drawer-fixed button:not(.btn-gold):hover {
   color: #8A5535 !important;
+  background-color: rgba(138, 85, 53, 0.08) !important;
   border-color: #8A5535 !important;
+  padding-left: 1.15rem !important;
 }
 
 html.light #mobile-menu-drawer .mobile-nav-link.active,
@@ -192,7 +252,10 @@ html.light .mobile-drawer-fixed .mobile-nav-link.active,
 html.light .mobile-drawer-fixed a.active {
   color: #8A5535 !important;
   font-weight: 700 !important;
+  background-color: rgba(138, 85, 53, 0.12) !important;
+  border-left: 3px solid #8A5535 !important;
   border-color: #8A5535 !important;
+  padding-left: 1.15rem !important;
 }
 
 html.light #mobile-menu-drawer #mobile-home-btn svg,
@@ -217,6 +280,16 @@ html.light #mobile-menu-drawer #mobile-home-submenu a:hover,
 html.light .mobile-drawer-fixed #mobile-home-submenu a:hover {
   color: #8A5535 !important;
   background-color: rgba(138, 85, 53, 0.15) !important;
+  padding-left: 1.1rem !important;
+}
+
+html.light #mobile-menu-drawer #mobile-home-submenu a.active,
+html.light .mobile-drawer-fixed #mobile-home-submenu a.active {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+  background-color: rgba(138, 85, 53, 0.2) !important;
+  border-left: 2px solid #8A5535 !important;
+  padding-left: 1.1rem !important;
 }
 
 html.light #mobile-menu-drawer .btn-gold,
@@ -1007,6 +1080,86 @@ html.light footer [class*="text-[#D9B866]"] {
 }
 html.light footer a:hover {
   color: #8F491E !important;
+}
+
+/* ==========================================================================
+   TABLET / IPAD FOOTER 2x2 GRID (iPad Mini, iPad, iPad Pro 11, iPad Pro 13)
+   ========================================================================== */
+.footer-tablet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) and (max-width: 1366px) {
+  .footer-tablet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 1367px) {
+  .footer-tablet-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+.footer-heading-bar {
+  width: 2rem;
+  height: 2.5px;
+  background-color: #E8C77A;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-radius: 9999px;
+}
+
+html.light .footer-heading-bar {
+  background-color: #8A5535 !important;
+}
+
+.footer-highlight-pill {
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+.footer-highlight-pill span {
+  white-space: nowrap !important;
+}
+
+.footer-legal-links {
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.footer-legal-links a {
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+
+html.light .footer-highlight-pill {
+  background-color: rgba(138, 85, 53, 0.1) !important;
+  border-color: rgba(138, 85, 53, 0.3) !important;
+  color: #8A4A1C !important;
+}
+
+html.light .footer-highlight-pill svg {
+  color: #8A4A1C !important;
+}
+
+html.light .footer-back-to-top {
+  background-color: #FAF5EE !important;
+  border-color: #B89452 !important;
+  color: #8A5535 !important;
+}
+
+html.light .footer-back-to-top:hover {
+  background-color: #B89452 !important;
+  color: #FFFDF9 !important;
+}
+
+html.light .footer-icon {
+  color: #8A5535 !important;
 }
 
 
@@ -2330,6 +2483,14 @@ html.light .contact-info-card .contact-card-body [class*="text-[#FFF4D6]"] {
   color: #1A0B06 !important;
 }
 
+html.light .contact-info-card .contact-card-body a {
+  color: #1A0B06 !important;
+}
+
+html.light .contact-info-card .contact-card-body a:hover {
+  color: #8A5535 !important;
+}
+
 html.light .contact-info-card > div:last-child p {
   color: #8A5535 !important;
 }
@@ -2397,6 +2558,39 @@ html.light .login-quick-demo-btn:hover {
   color: #1A0B06 !important;
 }
 
+/* Authentication Mode Tabs (Sign In vs Register) */
+.auth-mode-tab {
+  color: #D9B866;
+  background-color: transparent;
+  transition: all 0.25s ease-in-out;
+}
+
+.auth-mode-tab:hover {
+  color: #FFF4D6;
+}
+
+.auth-mode-tab.active {
+  background-color: #E8C77A !important;
+  color: #1A0B06 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(232, 199, 122, 0.3) !important;
+}
+
+html.light .auth-mode-tab {
+  color: #633522 !important;
+}
+
+html.light .auth-mode-tab:hover {
+  color: #1A0B06 !important;
+}
+
+html.light .auth-mode-tab.active {
+  background-color: #B89452 !important;
+  color: #FAF5EE !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(184, 148, 82, 0.25) !important;
+}
+
 /* Header Login Button */
 .header-login-btn {
   background-color: rgba(36, 16, 8, 0.7);
@@ -2436,11 +2630,192 @@ html.light .header-login-btn:hover svg {
   color: #1A0B06 !important;
 }
 
+/* ==========================================================================
+   METROLOGY MATRIX & ARTISAN STAT CARDS (PERFECT EVEN ALIGNMENT)
+   ========================================================================== */
+.metrology-box {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  text-align: center !important;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+.metrology-box:hover {
+  transform: translateY(-2px);
+  border-color: rgba(232, 199, 122, 0.5) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
 
+.metrology-label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
 
+.metrology-value {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
 
+/* Light Mode Support for Metrology Matrix */
+html.light .metrology-box {
+  background-color: #FAF5EE !important;
+  border-color: rgba(138, 85, 53, 0.35) !important;
+  box-shadow: 0 2px 8px rgba(138, 85, 53, 0.08);
+}
 
+html.light .metrology-box:hover {
+  border-color: #8A5535 !important;
+  box-shadow: 0 6px 16px rgba(138, 85, 53, 0.15);
+}
 
+html.light .metrology-label {
+  color: #8A5535 !important;
+}
 
+html.light .metrology-value {
+  color: #1A0B06 !important;
+}
+
+/* ==========================================================================
+   IMAGE OVERLAYS & FLOATING BADGES (100% CRYSTAL-CLEAR CONTRAST IN ALL MODES)
+   Fixes dark-text-on-dark-image and dark badge illegibility in Light Mode
+   ========================================================================== */
+
+/* 1. Chef Instructor Portrait Image Overlay (classes.html) */
+.chef-portrait-overlay,
+html.light #instructor .chef-portrait-overlay,
+html.light .chef-portrait-overlay {
+  background: linear-gradient(to top, rgba(20, 8, 4, 0.95) 0%, rgba(20, 8, 4, 0.82) 55%, transparent 100%) !important;
+  z-index: 10 !important;
+}
+
+.chef-portrait-name,
+html.light #instructor .chef-portrait-name,
+html.light #instructor .chef-portrait-overlay span.chef-portrait-name,
+html.light #instructor .chef-portrait-overlay span,
+html.light .chef-portrait-name {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+}
+
+.chef-portrait-role,
+html.light #instructor .chef-portrait-role,
+html.light #instructor .chef-portrait-overlay span.chef-portrait-role,
+html.light .chef-portrait-role {
+  color: #E8C77A !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 2. Academy Climate Floating Badge (home-2.html) */
+.academy-climate-badge,
+html.light .sec-academy .academy-climate-badge,
+html.light .academy-climate-badge {
+  background-color: rgba(18, 7, 3, 0.96) !important;
+  border: 1.5px solid rgba(232, 199, 122, 0.75) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+.academy-climate-label,
+html.light .sec-academy .academy-climate-badge .academy-climate-label,
+html.light .sec-academy .academy-climate-badge span,
+html.light .academy-climate-badge .academy-climate-label {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.academy-climate-val,
+html.light .sec-academy .academy-climate-badge .academy-climate-val,
+html.light .sec-academy .academy-climate-badge strong,
+html.light .academy-climate-badge .academy-climate-val {
+  color: #FFDF88 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 3. Sommelier Pairing Floating Pill (home-2.html) */
+.sommelier-pairing-pill {
+  background-color: rgba(20, 8, 4, 0.95);
+  border: 1px solid rgba(232, 199, 122, 0.55);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.sommelier-pill-subtitle {
+  color: #E8C77A;
+  font-weight: 700;
+}
+
+.sommelier-pill-text {
+  color: #FFF4D6;
+  font-weight: 500;
+}
+
+/* Light Mode: White pill background requires high-contrast deep chocolate typography */
+html.light .sommelier-pairing-pill,
+html.light [class*="sommelier-pairing-pill"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(138, 85, 53, 0.35) !important;
+  box-shadow: 0 10px 25px rgba(26, 11, 6, 0.15) !important;
+}
+
+html.light .sommelier-pill-subtitle,
+html.light .sommelier-pairing-pill .sommelier-pill-subtitle,
+html.light .sommelier-pairing-pill span {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light .sommelier-pill-text,
+html.light .sommelier-pairing-pill .sommelier-pill-text,
+html.light .sommelier-pairing-pill p {
+  color: #1A0B06 !important;
+  font-weight: 700 !important;
+}
+
+/* 4. Universal Safeguard for Dark Image Gradient Overlays in Light Mode */
+html.light [class*="bg-gradient-to-t"][class*="from-[#1A0B06]"] span:not(.text-black):not(.text-gray-900),
+html.light [class*="bg-gradient-to-t"][class*="from-black"] span:not(.text-black):not(.text-gray-900) {
+  color: #FFF4D6 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   VIEWPORT HEIGHT STANDARDIZATION
+   Requirement 1: Home page heroes occupy full viewport height
+   Requirement 2: Except Home pages, first section of all remaining pages
+                  have the exact same height
+   ========================================================================== */
+
+/* 1. Home Pages Hero Fullscreen */
+.hero-fullscreen {
+  min-height: calc(100vh - 64px) !important;
+  min-height: calc(100dvh - 64px) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 2. All Remaining Pages Unified First Section Height */
+.page-hero-standard {
+  min-height: 65vh !important;
+  min-height: max(65vh, 480px) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+@media (min-width: 1024px) {
+  .page-hero-standard {
+    min-height: 70vh !important;
+  }
+}
 

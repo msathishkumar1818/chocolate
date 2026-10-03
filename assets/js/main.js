@@ -43,18 +43,49 @@ function initLoader() {
    2. NAVIGATION & DROPDOWNS (STRICT CLICK-ONLY BEHAVIOR)
    -------------------------------------------------------------------------- */
 function initNavigation() {
-  // Highlight active link
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const isHomePage = (currentPath === 'index.html' || currentPath === 'home-2.html' || currentPath === '');
+
+  // 1. Highlight Desktop Links (.nav-link)
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
+    link.classList.remove('active');
     const href = link.getAttribute('href');
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.classList.add('active');
     }
   });
 
-  // Desktop Home Dropdown (Click-Only, Never Hover)
+  // 2. Highlight Mobile Links (.mobile-nav-link)
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  mobileNavLinks.forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href && (href === currentPath || (currentPath === '' && href === 'index.html'))) {
+      link.classList.add('active');
+    }
+  });
+
+  // 3. Highlight Parent Home buttons on Desktop & Mobile
   const homeDropdownBtn = document.getElementById('home-dropdown-btn');
+  const mobileHomeBtn = document.getElementById('mobile-home-btn');
+
+  if (isHomePage) {
+    if (homeDropdownBtn) homeDropdownBtn.classList.add('active');
+    if (mobileHomeBtn) mobileHomeBtn.classList.add('active');
+  }
+
+  // 4. Highlight specific sublinks inside Home dropdowns
+  const allHomeSubLinks = document.querySelectorAll('#home-dropdown-menu a, #mobile-home-submenu a');
+  allHomeSubLinks.forEach(subLink => {
+    subLink.classList.remove('active');
+    const href = subLink.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      subLink.classList.add('active');
+    }
+  });
+
+  // Desktop Home Dropdown (Click-Only, Never Hover)
   const homeDropdownMenu = document.getElementById('home-dropdown-menu');
 
   if (homeDropdownBtn && homeDropdownMenu) {
@@ -92,6 +123,7 @@ function initNavigation() {
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
   const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileHomeSubmenu = document.getElementById('mobile-home-submenu');
 
   if (mobileMenuToggle && mobileMenuDrawer) {
     // Create or reuse backdrop overlay
@@ -103,6 +135,18 @@ function initNavigation() {
       document.body.appendChild(backdrop);
     }
 
+    // Helper: auto close mobile home submenu
+    const closeMobileHomeSubmenu = () => {
+      if (mobileHomeSubmenu && !mobileHomeSubmenu.classList.contains('hidden')) {
+        mobileHomeSubmenu.classList.add('hidden');
+        if (mobileHomeBtn) {
+          const chevron = mobileHomeBtn.querySelector('svg');
+          if (chevron) chevron.style.transform = 'rotate(0deg)';
+          mobileHomeBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    };
+
     const openDrawer = () => {
       mobileMenuDrawer.classList.remove('hidden');
       backdrop.classList.remove('hidden');
@@ -111,6 +155,7 @@ function initNavigation() {
     };
 
     const closeDrawer = () => {
+      closeMobileHomeSubmenu(); // Auto close home submenu when drawer closes
       mobileMenuDrawer.classList.add('hidden');
       backdrop.classList.add('hidden');
       document.body.style.overflow = '';
@@ -153,28 +198,36 @@ function initNavigation() {
       }
     });
 
-    // Mobile Home Accordion with rotating chevron
-    const mobileHomeBtn = document.getElementById('mobile-home-btn');
-    const mobileHomeSubmenu = document.getElementById('mobile-home-submenu');
+    // Mobile Home Accordion (Only opens on click, auto-closes on outside click or other item click)
     if (mobileHomeBtn && mobileHomeSubmenu) {
       const chevron = mobileHomeBtn.querySelector('svg');
       if (chevron) {
         chevron.style.transition = 'transform 0.25s ease';
       }
+
       mobileHomeBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const isSubHidden = mobileHomeSubmenu.classList.toggle('hidden');
         if (chevron) {
           chevron.style.transform = isSubHidden ? 'rotate(0deg)' : 'rotate(180deg)';
         }
         mobileHomeBtn.setAttribute('aria-expanded', (!isSubHidden).toString());
       });
+
+      // Auto-close home submenu when clicking anywhere outside mobile-home-btn & mobile-home-submenu
+      document.addEventListener('click', (e) => {
+        if (!mobileHomeBtn.contains(e.target) && !mobileHomeSubmenu.contains(e.target)) {
+          closeMobileHomeSubmenu();
+        }
+      });
     }
 
-    // Close mobile menu when clicking any link
+    // Close mobile menu & home submenu when clicking any link
     const mobileLinks = mobileMenuDrawer.querySelectorAll('a');
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
+        closeMobileHomeSubmenu();
         closeDrawer();
       });
     });
