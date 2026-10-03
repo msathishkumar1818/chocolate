@@ -1,0 +1,2446 @@
+/* ==========================================================================
+   MAISON DU CACAO — LUXURY ARTISAN CHOCOLATE STUDIO & SHOP
+   Core Design System Tokens & Custom Styling
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Theme Color Palette */
+  --primary-dark: #1A0B06;
+  --deep-espresso: #241008;
+  --chocolate-brown: #35170D;
+  --cocoa-brown: #4A2415;
+  --warm-brown: #633522;
+  --caramel: #8A5535;
+  --champagne-gold: #FFD56B;
+  --soft-gold: #FEE79A;
+  --border-gold: #D9B866;
+  --warm-ivory: #FFFFFF;
+  --cream: #FFF9EA;
+
+  /* Mode Variables (Default Dark Mode - Pure Black & Chocolate) */
+  --bg-main: #000000;
+  --bg-surface: #1A0B06;
+  --bg-surface-elevated: #241008;
+  --bg-surface-card: #35170D;
+  --bg-surface-hover: #4A2415;
+  --text-main: #FFFFFF;
+  --text-muted: #FEE79A;
+  --text-body: #FFF9EA;
+  --border-subtle: rgba(255, 213, 107, 0.25);
+  --border-strong: rgba(255, 213, 107, 0.5);
+}
+
+/* Light Mode Overrides */
+html.light {
+  --bg-main: #FFFDF9;
+  --bg-surface: #F9F3EA;
+  --bg-surface-elevated: #F2E7D8;
+  --bg-surface-card: #EADBC8;
+  --bg-surface-hover: #DFCEB7;
+  --text-main: #1A0B06;
+  --text-muted: #633522;
+  --text-body: #35170D;
+  --border-subtle: rgba(184, 148, 82, 0.28);
+  --border-strong: rgba(184, 148, 82, 0.6);
+}
+
+/* Base resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 64px; /* Perfectly compensate for 64px fixed header */
+  background-color: var(--bg-main);
+  color: var(--text-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   FIXED SLEEK HEADER (64px HEIGHT & ZERO SCROLL-OFF)
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 64px;
+  z-index: 50;
+  background-color: rgba(26, 11, 6, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(232, 199, 122, 0.22);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+html.light .site-header {
+  background-color: rgba(255, 253, 249, 0.96);
+  border-bottom: 1px solid rgba(184, 148, 82, 0.3);
+  box-shadow: 0 4px 20px rgba(26, 11, 6, 0.08);
+}
+
+/* Fixed Mobile Drawer (Never scrolls off header) */
+.mobile-drawer-fixed {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #1A0B06;
+  border-bottom: 2px solid rgba(232, 199, 122, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  z-index: 49;
+}
+
+/* Mobile Menu Backdrop Overlay */
+#mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 48;
+  transition: opacity 0.3s ease;
+}
+
+html.light #mobile-menu-backdrop {
+  background-color: rgba(26, 11, 6, 0.45);
+}
+
+/* Light Mode Mobile Drawer — 100% Ultra High-Contrast, Crystal Clear Typography & Borders */
+html.light #mobile-menu-drawer,
+html.light .mobile-drawer-fixed {
+  background-color: #FAF5EE !important;
+  border-bottom: 2px solid rgba(138, 85, 53, 0.45) !important;
+  box-shadow: 0 20px 40px rgba(26, 11, 6, 0.22) !important;
+}
+
+html.light #mobile-menu-drawer .mobile-drawer-title,
+html.light #mobile-menu-drawer span.font-serif,
+html.light #mobile-menu-drawer span.mobile-drawer-title,
+html.light .mobile-drawer-fixed .mobile-drawer-title,
+html.light .mobile-drawer-fixed span.font-serif,
+html.light .mobile-drawer-fixed span.mobile-drawer-title {
+  color: #1A0B06 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+}
+
+html.light #mobile-menu-drawer #mobile-menu-close,
+html.light #mobile-menu-drawer #mobile-menu-close svg,
+html.light .mobile-drawer-fixed #mobile-menu-close,
+html.light .mobile-drawer-fixed #mobile-menu-close svg {
+  color: #1A0B06 !important;
+  stroke: #1A0B06 !important;
+}
+
+html.light #mobile-menu-drawer .mobile-nav-link,
+html.light #mobile-menu-drawer a:not(.btn-gold),
+html.light #mobile-menu-drawer button:not(.btn-gold),
+html.light .mobile-drawer-fixed .mobile-nav-link,
+html.light .mobile-drawer-fixed a:not(.btn-gold),
+html.light .mobile-drawer-fixed button:not(.btn-gold) {
+  color: #1A0B06 !important;
+  font-weight: 600 !important;
+  border-color: rgba(138, 85, 53, 0.28) !important;
+}
+
+html.light #mobile-menu-drawer .mobile-nav-link span,
+html.light .mobile-drawer-fixed .mobile-nav-link span {
+  color: #1A0B06 !important;
+  font-weight: 600 !important;
+}
+
+html.light #mobile-menu-drawer .mobile-nav-link:hover,
+html.light #mobile-menu-drawer a:not(.btn-gold):hover,
+html.light #mobile-menu-drawer button:not(.btn-gold):hover,
+html.light .mobile-drawer-fixed .mobile-nav-link:hover,
+html.light .mobile-drawer-fixed a:not(.btn-gold):hover,
+html.light .mobile-drawer-fixed button:not(.btn-gold):hover {
+  color: #8A5535 !important;
+  border-color: #8A5535 !important;
+}
+
+html.light #mobile-menu-drawer .mobile-nav-link.active,
+html.light #mobile-menu-drawer a.active,
+html.light .mobile-drawer-fixed .mobile-nav-link.active,
+html.light .mobile-drawer-fixed a.active {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+  border-color: #8A5535 !important;
+}
+
+html.light #mobile-menu-drawer #mobile-home-btn svg,
+html.light .mobile-drawer-fixed #mobile-home-btn svg {
+  color: #1A0B06 !important;
+  stroke: #1A0B06 !important;
+}
+
+html.light #mobile-menu-drawer #mobile-home-submenu,
+html.light .mobile-drawer-fixed #mobile-home-submenu {
+  background-color: #EFE4D6 !important;
+  border-color: rgba(138, 85, 53, 0.35) !important;
+}
+
+html.light #mobile-menu-drawer #mobile-home-submenu a,
+html.light .mobile-drawer-fixed #mobile-home-submenu a {
+  color: #1A0B06 !important;
+  font-weight: 600 !important;
+}
+
+html.light #mobile-menu-drawer #mobile-home-submenu a:hover,
+html.light .mobile-drawer-fixed #mobile-home-submenu a:hover {
+  color: #8A5535 !important;
+  background-color: rgba(138, 85, 53, 0.15) !important;
+}
+
+html.light #mobile-menu-drawer .btn-gold,
+html.light .mobile-drawer-fixed .btn-gold {
+  background-color: #8A5535 !important;
+  color: #FFFFFF !important;
+  border-color: #8A5535 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(138, 85, 53, 0.28) !important;
+}
+
+html.light #mobile-menu-drawer .btn-gold:hover,
+html.light .mobile-drawer-fixed .btn-gold:hover {
+  background-color: #633522 !important;
+  border-color: #633522 !important;
+  color: #FFFFFF !important;
+}
+
+/* Refined Luxury Desktop Navigation (Compact, Haute-Chocolaterie Aesthetic) */
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-header .nav-link {
+  font-size: 0.75rem !important; /* 12px refined luxury scale */
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #F7E8C2;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.1rem;
+}
+
+.site-header .nav-link:hover {
+  color: #E8C77A !important;
+}
+
+.site-header .nav-link.active {
+  color: #E8C77A !important;
+  font-weight: 600 !important;
+}
+
+html.light .site-header .nav-link {
+  color: #241008 !important;
+  font-weight: 500 !important;
+}
+
+html.light .site-header .nav-link:hover {
+  color: #8A5535 !important;
+}
+
+html.light .site-header .nav-link.active {
+  color: #8A5535 !important;
+  font-weight: 600 !important;
+}
+
+html.light .site-header #home-dropdown-btn svg {
+  color: #8A5535 !important;
+  stroke: #8A5535 !important;
+}
+
+/* Brand name & subtitle */
+.brand-name-text {
+  color: #FFF4D6;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+html.light .brand-name-text {
+  color: #1A0B06 !important;
+}
+.brand-subtitle {
+  color: #D9B866;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  display: block;
+}
+html.light .brand-subtitle {
+  color: #8A5535 !important;
+}
+
+/* Luxury RTL & Theme Toggle Buttons */
+.theme-toggle-luxury, .rtl-toggle-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid #B89452;
+  background: rgba(36, 16, 8, 0.7);
+  color: #E8C77A;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+@media (max-width: 639px) {
+  .theme-toggle-luxury, .rtl-toggle-luxury {
+    padding: 0.4rem;
+    border-radius: 9999px;
+    width: 32px;
+    height: 32px;
+  }
+}
+.theme-toggle-luxury:hover, .rtl-toggle-luxury:hover {
+  background: #E8C77A;
+  color: #1A0B06;
+  border-color: #E8C77A;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(232, 199, 122, 0.35);
+}
+html.light .theme-toggle-luxury,
+html.light .rtl-toggle-luxury {
+  background: #EADBC8;
+  color: #35170D;
+  border-color: #B89452;
+}
+html.light .theme-toggle-luxury:hover,
+html.light .rtl-toggle-luxury:hover {
+  background: #B89452;
+  color: #FFFDF9;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Selection */
+::selection {
+  background: var(--champagne-gold);
+  color: #1A0B06;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #1A0B06;
+}
+::-webkit-scrollbar-thumb {
+  background: #633522;
+  border-radius: 4px;
+  border: 2px solid #1A0B06;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E8C77A;
+}
+
+/* Page Loader */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  animation: autoDismissLoader 0.4s ease 0.9s forwards;
+}
+#page-loader.loaded {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+@keyframes autoDismissLoader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.loader-pod-pulse {
+  animation: pulseGold 1.6s infinite ease-in-out;
+}
+@keyframes pulseGold {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(232, 199, 122, 0.3)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 24px rgba(232, 199, 122, 0.7)); }
+}
+
+/* Luxury Gold Buttons */
+.btn-gold {
+  background-color: #E8C77A;
+  color: #1A0B06;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.65rem;
+  border-radius: 0.375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #E8C77A;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(232, 199, 122, 0.2);
+  text-decoration: none;
+}
+.btn-gold:hover {
+  background-color: #D9B866;
+  border-color: #D9B866;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 199, 122, 0.35);
+  color: #1A0B06;
+}
+
+/* Card footer buttons - always keep compact width and generous gap with price */
+.luxury-card .btn-gold,
+.luxury-card .btn-outline-gold {
+  width: auto !important;
+  padding: 0.45rem 1rem !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.05em !important;
+  flex-shrink: 0 !important;
+}
+
+.btn-outline-gold {
+  background-color: transparent;
+  color: #E8C77A;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.65rem;
+  border-radius: 0.375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #B89452;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn-outline-gold:hover {
+  background-color: rgba(232, 199, 122, 0.12);
+  border-color: #E8C77A;
+  color: #FFF4D6;
+  transform: translateY(-2px);
+}
+
+/* Card Hover Elevation, Strict Equal Height & Perfectly Even Content Alignment */
+.luxury-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.luxury-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Standalone image card: image stretches 100% to fill container without any bottom gap */
+.luxury-card > img:only-child,
+.luxury-card.image-only-card > img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  flex: 1 1 100% !important;
+  flex-grow: 1 !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Image wrapper within card */
+.luxury-card .img-zoom-wrapper {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+}
+
+/* Card inner content container for cards with images */
+.luxury-card .img-zoom-wrapper + div,
+.luxury-card > div:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  justify-content: space-between !important;
+}
+
+/* Card titles consistent height and alignment */
+.luxury-card h3 {
+  display: block !important;
+  min-height: 3.5rem;
+  line-height: 1.3;
+}
+
+/* Card paragraph text stretches evenly */
+.luxury-card p,
+.luxury-card > div:last-child p {
+  flex-grow: 1 !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Card footers (pricing bars, action buttons, lead times) pinned to bottom */
+.luxury-card > div:last-child > .border-t,
+.luxury-card > div:last-child > div:last-child,
+.luxury-card > div:last-child > a:last-child,
+.luxury-card > div:last-child > button:last-child,
+.luxury-card > .border-t,
+.luxury-card > span:last-child,
+.luxury-card > div.pt-4,
+.luxury-card > div.pt-5,
+.luxury-card > div.pt-6 {
+  margin-top: auto !important;
+}
+
+/* Specific Equalization for Testimonials / Reviews (Cards without image) */
+.testimonial-card,
+.luxury-card.testimonial-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+}
+
+.testimonial-card > div:first-child,
+.luxury-card.testimonial-card > div:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  justify-content: flex-start !important;
+}
+
+.testimonial-card > div:first-child p,
+.luxury-card.testimonial-card > div:first-child p {
+  flex-grow: 1 !important;
+  min-height: 110px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0 !important;
+}
+
+.testimonial-card > div:last-child,
+.luxury-card.testimonial-card > div:last-child {
+  margin-top: auto !important;
+  flex: 0 0 auto !important;
+  flex-grow: 0 !important;
+  width: 100% !important;
+}
+
+/* Milestone Navigator Pills - ensure single line pill shape */
+[href^="#stage-"] {
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+html.light .luxury-card {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.28) !important;
+  box-shadow: 0 4px 16px rgba(26, 11, 6, 0.06);
+}
+html.light .luxury-card:hover {
+  border-color: rgba(184, 148, 82, 0.6) !important;
+  box-shadow: 0 12px 28px rgba(26, 11, 6, 0.12) !important;
+}
+
+/* Luxury card typography & badges in light mode */
+html.light .luxury-card h3,
+html.light .luxury-card h4 {
+  color: #1A0B06 !important;
+}
+html.light .luxury-card p {
+  color: #35170D !important;
+}
+html.light .luxury-card [class*="bg-[#241008]"],
+html.light .luxury-card [class*="bg-[#35170D]"] {
+  background-color: #EFE4D6 !important;
+  color: #1A0B06 !important;
+  border-color: rgba(138, 85, 53, 0.3) !important;
+}
+html.light .testimonial-card [class*="text-[#FFF4D6]"] {
+  color: #1A0B06 !important;
+}
+html.light .testimonial-card [class*="text-[#D9B866]"] {
+  color: #8A5535 !important;
+}
+
+/* Image zoom on hover */
+.img-zoom-wrapper {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.img-zoom-wrapper img {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+.img-zoom-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* Scroll To Top Button */
+#scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #241008;
+  border: 1.5px solid #E8C77A;
+  color: #E8C77A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.25s ease, background-color 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+#scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+#scroll-to-top:hover {
+  background-color: #E8C77A;
+  color: #1A0B06;
+  transform: translateY(-3px);
+}
+html.light #scroll-to-top {
+  background-color: #FAF5EE;
+  border-color: #B89452;
+  color: #8A5535;
+  box-shadow: 0 4px 16px rgba(26, 11, 6, 0.15);
+}
+html.light #scroll-to-top:hover {
+  background-color: #B89452;
+  color: #FFFDF9;
+}
+[dir="rtl"] #scroll-to-top {
+  right: auto;
+  left: 2rem;
+}
+
+/* Dropdown Menu Click Behavior */
+.dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+.dropdown-menu.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+html.light .dropdown-menu {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+  box-shadow: 0 12px 32px rgba(26, 11, 6, 0.15) !important;
+}
+html.light .dropdown-menu a {
+  color: #241008 !important;
+  border-color: rgba(184, 148, 82, 0.2) !important;
+}
+html.light .dropdown-menu a:hover {
+  background-color: #EFE4D6 !important;
+  color: #8A5535 !important;
+}
+html.light .dropdown-menu span {
+  color: #1A0B06 !important;
+}
+
+/* Active Nav State — Sleek, Attached Luxury Underline */
+.nav-link.active {
+  color: #E8C77A !important;
+  position: relative;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #E8C77A;
+  border-radius: 1px;
+}
+html.light .nav-link.active {
+  color: #8A5535 !important;
+}
+html.light .nav-link.active::after {
+  background-color: #8A5535 !important;
+}
+
+/* RTL Helpers */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="rtl"] .ltr-only-flip {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* ==========================================================================
+   GLOBAL LIGHT MODE COMPREHENSIVE CONTRAST & READABILITY OVERRIDES
+   Ensures sections, cards, typography, and badges look exquisite in Light Mode
+   ========================================================================== */
+html.light body {
+  background-color: #FFFDF9 !important;
+  color: #1F0D06 !important;
+}
+
+/* Section backgrounds in light mode */
+html.light section[class*="bg-[#1A0B06]"] {
+  background-color: #FFFDF9 !important;
+}
+html.light section[class*="bg-[#000000]"] {
+  background-color: #FAF5EE !important;
+}
+html.light section[class*="bg-[#241008]"] {
+  background-color: #F4EAE0 !important;
+}
+html.light div[class*="bg-[#241008]"] {
+  background-color: #F5EDE4 !important;
+}
+html.light div[class*="bg-[#1A0B06]"] {
+  background-color: #FFFDF9 !important;
+}
+html.light div[class*="bg-[#35170D]"] {
+  background-color: #EAE0D2 !important;
+}
+
+/* ==========================================================================
+/* ==========================================================================
+   HERO SECTION BACKGROUND PHOTOGRAPHY & LEGIBILITY OVERLAYS
+   Ensures rich, vibrant hero photography is clearly visible across all pages
+   while preserving pristine typography contrast in both light & dark modes.
+   ========================================================================== */
+.hero-bg-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  opacity: 0.58 !important;
+  filter: contrast(1.05) saturate(1.1) !important;
+}
+
+.hero-gradient-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(26, 11, 6, 0.82) 0%,
+    rgba(26, 11, 6, 0.52) 48%,
+    rgba(26, 11, 6, 0.22) 100%
+  ) !important;
+}
+
+html.light .hero-bg-image {
+  opacity: 0.48 !important;
+  filter: contrast(1.08) saturate(1.15) !important;
+}
+
+html.light .hero-gradient-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(255, 253, 249, 0.85) 0%,
+    rgba(255, 253, 249, 0.58) 50%,
+    rgba(255, 253, 249, 0.22) 100%
+  ) !important;
+}
+
+/* Ensure general background wallpaper images in other sections don't block content */
+html.light section:not(.cta-section):not([class*="min-h-"]) > .absolute.inset-0:first-child > img:not(.cta-bg-image):not(.hero-bg-image),
+html.light .section-bg-backdrop > img {
+  opacity: 0.35 !important;
+}
+html.light .hero-bg-p1 {
+  opacity: 0.48 !important;
+}
+
+/* Ensure all content and showcase images remain 100% opaque, vivid, and never faded in light mode */
+html.light .sec-bonbon-anatomy img,
+html.light .sec-academy img,
+html.light .sec-tasting-salon img,
+html.light .anatomy-portal-img img,
+html.light .luxury-card img,
+html.light .img-zoom-wrapper img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* Light Mode Outline Gold Button (High Contrast Bronze) */
+html.light .btn-outline-gold {
+  color: #8A5535 !important;
+  border-color: #8A5535 !important;
+  background-color: transparent !important;
+  font-weight: 600 !important;
+}
+html.light .btn-outline-gold:hover {
+  background-color: #8A5535 !important;
+  color: #FFFFFF !important;
+  border-color: #8A5535 !important;
+}
+
+/* Light Mode Badges & Pills */
+html.light [class*="bg-[#241008]/80"],
+html.light [class*="bg-[#241008]"],
+html.light [class*="bg-[#35170D]"] {
+  background-color: #FAF5EE !important;
+  border-color: rgba(138, 85, 53, 0.35) !important;
+}
+
+/* Light Mode Alchemy Journey Chronicle Polish */
+html.light #alchemy-journey {
+  background-color: #FFFDF9 !important;
+}
+html.light #alchemy-journey .font-serif.text-3xl,
+html.light #alchemy-journey .font-serif.text-4xl {
+  color: #8A5535 !important;
+}
+html.light #alchemy-journey .font-serif.text-lg {
+  color: #8A5535 !important;
+}
+html.light #alchemy-journey [class*="border-[#E8C77A]"] {
+  border-color: rgba(138, 85, 53, 0.3) !important;
+}
+html.light #alchemy-journey .bg-\[\#241008\]\/90 {
+  background-color: #FAF5EE !important;
+  border-color: rgba(138, 85, 53, 0.35) !important;
+}
+html.light #alchemy-journey .bg-\[\#1A0B06\]\/90 {
+  background-color: #FAF5EE !important;
+  border-color: rgba(138, 85, 53, 0.4) !important;
+}
+html.light #alchemy-journey .bg-\[\#1A0B06\]\/90 span {
+  color: #110603 !important;
+}
+
+/* Light Mode Sensory Salon Layout Polish (Clean & Card-Free) */
+html.light section[class*="bg-[#1A0B06]"] {
+  background-color: #FFFDF9 !important;
+}
+html.light [class*="border-[#E8C77A]/20"],
+html.light [class*="border-[#E8C77A]/30"] {
+  border-color: rgba(138, 85, 53, 0.25) !important;
+}
+
+/* Light Mode Cacao Spectrum Pill Buttons (Home 2) */
+html.light .cacao-pill-btn {
+  background-color: #FAF5EE !important;
+  color: #110603 !important;
+  border-color: rgba(138, 85, 53, 0.35) !important;
+}
+html.light .cacao-pill-btn.bg-\[\#E8C77A\] {
+  background-color: #8A5535 !important;
+  color: #FFFFFF !important;
+  border-color: #8A5535 !important;
+}
+
+
+
+
+
+/* ==========================================================================
+   ULTRA-BRIGHT TYPOGRAPHY (ALL TEXT & SOFT TEXT 100% BRIGHT & CRISP)
+   ========================================================================== */
+
+/* Dark Mode (Default) — Ultra Bright, Radiant & Highly Legible */
+body {
+  color: #FFF9EA !important;
+}
+
+/* Headings: Crisp Pure White */
+h1, h2, h3, h4, h5, h6,
+[class*="text-[#FFF4D6]"] {
+  color: #FFFFFF !important;
+}
+
+/* Body text & descriptions: Radiant Bright Ivory, Zero Dimness */
+p, li,
+[class*="text-[#F7E8C2]"] {
+  color: #FFF9EB !important;
+}
+
+/* Soft text, Subtitles, Badges & Small notes: Glowing Bright Champagne Gold */
+[class*="text-[#D9B866]"],
+.brand-subtitle,
+span[class*="text-[#D9B866]"],
+p[class*="text-[#D9B866]"] {
+  color: #FEE79A !important;
+  font-weight: 500 !important;
+}
+
+/* Gold Accents */
+[class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold) {
+  color: #FFD56B !important;
+  font-weight: 600 !important;
+}
+
+/* Prevent thin washed-out text */
+.font-light,
+[class*="font-light"] {
+  font-weight: 400 !important;
+}
+
+/* Borders in light mode */
+html.light [class*="border-[#E8C77A]"] {
+  border-color: rgba(184, 148, 82, 0.35) !important;
+}
+
+/* Typography in light mode — Deep, Crisp & Ultra-Legible */
+html.light body {
+  color: #1F0D06 !important;
+}
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light [class*="text-[#FFF4D6]"] {
+  color: #110603 !important;
+  font-weight: 700 !important;
+}
+
+html.light p,
+html.light li,
+html.light [class*="text-[#F7E8C2]"] {
+  color: #241008 !important;
+  font-weight: 450 !important;
+}
+
+html.light [class*="text-[#D9B866]"],
+html.light .brand-subtitle {
+  color: #803D16 !important;
+  font-weight: 600 !important;
+}
+
+html.light [class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold) {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light [class*="text-[#FFE8A8]"] {
+  color: #1A0B06 !important;
+  font-weight: 700 !important;
+}
+
+html.light [class*="text-[#FFD700]"]:not(.btn-gold):not(.btn-outline-gold) {
+  color: #8A4A1C !important;
+  font-weight: 700 !important;
+}
+
+/* Footer in light mode */
+html.light footer {
+  background-color: #EFE5D8 !important;
+  border-top-color: rgba(184, 148, 82, 0.35) !important;
+}
+html.light footer [class*="text-[#FFF4D6]"] {
+  color: #110603 !important;
+}
+html.light footer [class*="text-[#F7E8C2]"] {
+  color: #1F0D06 !important;
+}
+html.light footer [class*="text-[#D9B866]"] {
+  color: #803D16 !important;
+}
+html.light footer a:hover {
+  color: #8F491E !important;
+}
+
+
+/* ==========================================================================
+   SECTION 03 ACADEMY — HIGH-CONTRAST LIGHT & DARK HARMONY
+   ========================================================================== */
+
+/* Light Mode Adaptations */
+html.light .sec-academy {
+  background-color: #F8F3EC !important;
+  border-bottom-color: rgba(184, 148, 82, 0.28) !important;
+}
+
+html.light .sec-academy-title {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-academy-title span {
+  color: #8A5535 !important;
+}
+
+html.light .sec-academy-desc {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .sec-academy-step h3 {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-academy-step p {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .sec-academy-step span {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light .sec-academy [class*="text-white"] {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-academy [class*="text-[#FFDF88]"] {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light .sec-academy [class*="text-[#FFF9EE]"] {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .sec-academy .rounded-t-\[160px\] {
+  border-color: rgba(184, 148, 82, 0.5) !important;
+  box-shadow: 0 20px 40px -10px rgba(53, 23, 13, 0.15) !important;
+}
+
+html.light .sec-academy .border-t.border-\[\#E8C77A\]\/25 {
+  border-top-color: rgba(184, 148, 82, 0.25) !important;
+}
+
+
+/* ==========================================================================
+   SECTION 04 TASTING SALON — EDITORIAL SOMMELIER MENU (LIGHT MODE)
+   ========================================================================== */
+
+html.light .sec-tasting-salon {
+  background-color: #FAF6F0 !important;
+  border-bottom-color: rgba(184, 148, 82, 0.28) !important;
+}
+
+html.light .sec-tasting-title {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-tasting-lead {
+  color: #4A2415 !important;
+}
+
+html.light .tasting-menu-row h3 {
+  color: #1A0B06 !important;
+}
+
+html.light .tasting-menu-row:hover h3 {
+  color: #8A5535 !important;
+}
+
+html.light .tasting-menu-row p {
+  color: #4A2415 !important;
+}
+
+html.light .tasting-menu-row .font-serif.text-xl {
+  color: #8A5535 !important;
+}
+
+html.light .tasting-menu-row .border-dotted {
+  border-color: rgba(184, 148, 82, 0.45) !important;
+}
+
+html.light .tasting-menu-row .rounded-full {
+  border-color: rgba(184, 148, 82, 0.35) !important;
+  background-color: #F4ECE1 !important;
+  color: #7A3E14 !important;
+}
+
+html.light .sec-tasting-salon strong {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-tasting-salon [class*="border-[#E8C77A]"] {
+  border-color: rgba(184, 148, 82, 0.35) !important;
+}
+
+
+/* ==========================================================================
+   SECTION 05 HAUTE GIFTING — FLOATING PEDESTAL MICRO-ANIMATIONS
+   ========================================================================== */
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.gifting-pedestal {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.4s ease;
+  animation: floatSoft 5.5s ease-in-out infinite;
+}
+
+.gifting-pedestal-1 {
+  animation-delay: 0s;
+}
+
+.gifting-pedestal-2 {
+  animation-delay: 1.8s;
+}
+
+.gifting-pedestal-3 {
+  animation-delay: 3.6s;
+}
+
+.gifting-pedestal:hover {
+  transform: translateY(-12px) scale(1.02) !important;
+  border-color: #FFDF88 !important;
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(232, 199, 122, 0.3) !important;
+}
+
+/* Light Mode Adaptations for Section 05 */
+html.light .sec-gifting {
+  background-color: #F8F3EC !important;
+  border-bottom-color: rgba(184, 148, 82, 0.28) !important;
+}
+
+html.light .sec-gifting-title {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-gifting-desc {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .gifting-pedestal {
+  background-color: #FFFFFF !important;
+  border-color: rgba(184, 148, 82, 0.35) !important;
+  box-shadow: 0 15px 35px -10px rgba(53, 23, 13, 0.08) !important;
+}
+
+html.light .gifting-pedestal:hover {
+  border-color: #B89452 !important;
+  box-shadow: 0 22px 40px -10px rgba(53, 23, 13, 0.15), 0 0 15px rgba(184, 148, 82, 0.2) !important;
+}
+
+html.light .gifting-pedestal h3 {
+  color: #1A0B06 !important;
+}
+
+html.light .gifting-pedestal p {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .gifting-pedestal span {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light .sec-gifting [class*="text-white"] {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-gifting [class*="text-[#FFDF88]"] {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light .sec-gifting [class*="text-[#FFF9EE]"] {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+
+/* ==========================================================================
+   SECTION 03 PRODUCTS — BONBON ANATOMY & METROLOGY SHOWCASE
+   ========================================================================== */
+
+.anatomy-callout {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anatomy-callout:hover {
+  transform: translateY(-4px);
+}
+
+/* Light Mode Adaptations for Bonbon Anatomy */
+html.light .sec-bonbon-anatomy {
+  background-color: #F8F3EC !important;
+  border-bottom-color: rgba(184, 148, 82, 0.28) !important;
+}
+
+html.light .sec-anatomy-title {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-anatomy-desc {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .anatomy-callout h3 {
+  color: #1A0B06 !important;
+}
+
+html.light .anatomy-callout p {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .anatomy-callout .text-\[\#FFDF88\] {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light .anatomy-callout .bg-\[\#241008\] {
+  background-color: #F4ECE1 !important;
+  border-color: rgba(184, 148, 82, 0.35) !important;
+  color: #8A5535 !important;
+}
+
+html.light .sec-bonbon-anatomy [class*="text-white"] {
+  color: #1A0B06 !important;
+}
+
+html.light .sec-bonbon-anatomy [class*="text-[#FFDF88]"] {
+  color: #8A5535 !important;
+  font-weight: 700 !important;
+}
+
+html.light .sec-bonbon-anatomy [class*="text-[#FFF9EE]"] {
+  color: #2D1409 !important;
+  font-weight: 500 !important;
+}
+
+html.light .sec-bonbon-anatomy .aspect-square.rounded-full,
+html.light .sec-bonbon-anatomy [style*="aspect-ratio: 1/1"] {
+  border-color: rgba(184, 148, 82, 0.45) !important;
+  box-shadow: 0 15px 35px -10px rgba(53, 23, 13, 0.12) !important;
+  background-color: transparent !important;
+}
+
+html.light .anatomy-portal-img {
+  background-color: #241008 !important;
+  border-color: #B89452 !important;
+}
+
+html.light .anatomy-portal-img img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* ==========================================================================
+   EDITORIAL CURRICULUM WORKSHOP STYLES & RICH ANIMATIONS
+   ========================================================================== */
+.curriculum-filter-btn {
+  background-color: #1A0B06;
+  color: #D9B866;
+  border: 1px solid rgba(232, 199, 122, 0.3);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.curriculum-filter-btn:hover {
+  border-color: #E8C77A;
+  color: #FFF4D6;
+  background-color: #241008;
+  transform: translateY(-1px);
+}
+.curriculum-filter-btn.active-pathway {
+  background-color: #E8C77A !important;
+  color: #1A0B06 !important;
+  border-color: #E8C77A !important;
+  box-shadow: 0 4px 16px rgba(232, 199, 122, 0.35) !important;
+  font-weight: 700 !important;
+}
+
+/* Masterclass Card Entrance & Hover Animations */
+@keyframes fadeInUpMasterclass {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.masterclass-editorial-item {
+  animation: fadeInUpMasterclass 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.masterclass-editorial-item:nth-child(1) { animation-delay: 0.05s; }
+.masterclass-editorial-item:nth-child(2) { animation-delay: 0.12s; }
+.masterclass-editorial-item:nth-child(3) { animation-delay: 0.2s; }
+
+.masterclass-editorial-item:hover {
+  transform: translateY(-4px);
+  border-color: #E8C77A !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 25px rgba(232, 199, 122, 0.2) !important;
+}
+
+/* Interactive Workshop Step Pills Animation */
+.workshop-step-pill {
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: default;
+}
+.workshop-step-pill:hover {
+  transform: translateY(-2px);
+  border-color: #E8C77A !important;
+  background-color: rgba(232, 199, 122, 0.16) !important;
+}
+
+/* Ensure Images are 100% Opaque, Crisp, and Never Hidden in Both Modes */
+.masterclass-editorial-item img,
+html.light .masterclass-editorial-item img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  display: block !important;
+}
+
+/* Light Mode Overrides for Section 02: Curriculum Editorial Showcase */
+html.light #curriculum {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.3) !important;
+}
+html.light #curriculum h2 {
+  color: #1A0B06 !important;
+}
+html.light #curriculum p {
+  color: #4A2415 !important;
+}
+html.light #curriculum .curriculum-filter-btn {
+  background-color: #FFFFFF !important;
+  color: #633522 !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+}
+html.light #curriculum .curriculum-filter-btn:hover {
+  background-color: #F5EDE2 !important;
+  color: #1A0B06 !important;
+  border-color: #B89452 !important;
+}
+html.light #curriculum .curriculum-filter-btn.active-pathway {
+  background-color: #B89452 !important;
+  color: #FFFFFF !important;
+  border-color: #B89452 !important;
+  box-shadow: 0 4px 14px rgba(184, 148, 82, 0.3) !important;
+}
+
+html.light .masterclass-editorial-item {
+  background-color: #FFFFFF !important;
+  border-color: rgba(184, 148, 82, 0.3) !important;
+  box-shadow: 0 6px 24px rgba(26, 11, 6, 0.06) !important;
+}
+html.light .masterclass-editorial-item:hover {
+  border-color: #B89452 !important;
+  box-shadow: 0 14px 35px rgba(26, 11, 6, 0.12), 0 0 20px rgba(184, 148, 82, 0.15) !important;
+}
+html.light .masterclass-editorial-item > div:last-child,
+html.light .masterclass-editorial-item > div.w-full {
+  background-color: #FFFFFF !important;
+}
+html.light .masterclass-editorial-item h3 {
+  color: #1A0B06 !important;
+}
+html.light .masterclass-editorial-item p {
+  color: #4A2415 !important;
+}
+html.light .masterclass-editorial-item [class*="bg-[#241008]"],
+html.light .masterclass-editorial-item [class*="bg-[#1A0B06]"] {
+  background-color: #F9F3EA !important;
+  color: #1A0B06 !important;
+  border-color: rgba(184, 148, 82, 0.35) !important;
+}
+html.light .workshop-step-pill {
+  background-color: #F5EDE2 !important;
+  color: #1A0B06 !important;
+  border-color: rgba(184, 148, 82, 0.35) !important;
+}
+html.light .workshop-step-pill:hover {
+  background-color: #EFE4D6 !important;
+  border-color: #B89452 !important;
+}
+html.light .masterclass-editorial-item span[class*="text-[#FFF4D6]"] {
+  color: #1A0B06 !important;
+}
+html.light .masterclass-editorial-item span[class*="text-[#D9B866]"] {
+  color: #633522 !important;
+}
+html.light .masterclass-editorial-item span[class*="text-[#E8C77A]"] {
+  color: #8A5535 !important;
+}
+
+/* Tier 2 Featured Card in Light Mode */
+html.light #tier-2 {
+  background: linear-gradient(135deg, #FFFDF8 0%, #F8F1E5 50%, #EFE4D6 100%) !important;
+  border-color: #B89452 !important;
+  box-shadow: 0 8px 30px rgba(184, 148, 82, 0.2) !important;
+}
+html.light #tier-2 > div {
+  background-color: transparent !important;
+}
+
+/* Comparison Matrix in Light Mode */
+html.light #curriculum table {
+  background-color: #FFFFFF !important;
+  border-color: rgba(184, 148, 82, 0.3) !important;
+}
+html.light #curriculum th,
+html.light #curriculum tr.bg-\[\#241008\] {
+  background-color: #F4ECE1 !important;
+  color: #1A0B06 !important;
+}
+html.light #curriculum td {
+  color: #35170D !important;
+}
+html.light #curriculum td.text-\[\#FFF4D6\],
+html.light #curriculum td.text-\[\#F7E8C2\] {
+  color: #1A0B06 !important;
+}
+html.light #curriculum td[class*="bg-[#35170D]"],
+html.light #curriculum th[class*="bg-[#35170D]"] {
+  background-color: #EADBC8 !important;
+  color: #1A0B06 !important;
+}
+
+/* ==========================================================================
+   SECTION 04: CHEF INSTRUCTOR & MASTER DOSSIER STYLES & ANIMATIONS
+   ========================================================================== */
+@keyframes dossierFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes goldShimmerSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes eqBarPulse {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 18px;
+  }
+}
+
+@keyframes fadeInDossier {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dossier-tab-btn {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dossier-tab-btn.active {
+  background: #E8C77A !important;
+  color: #1A0B06 !important;
+  border-color: #E8C77A !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 20px rgba(232, 199, 122, 0.35);
+}
+
+.animate-dossier-float {
+  animation: dossierFloat 5s ease-in-out infinite;
+}
+
+.animate-orbit-slow {
+  animation: orbitSpin 24s linear infinite;
+}
+
+.eq-bar {
+  display: inline-block;
+  width: 3px;
+  background-color: #E8C77A;
+  border-radius: 9999px;
+  animation: eqBarPulse 1.2s ease-in-out infinite;
+}
+.eq-bar:nth-child(1) { animation-delay: 0.1s; }
+.eq-bar:nth-child(2) { animation-delay: 0.35s; }
+.eq-bar:nth-child(3) { animation-delay: 0.2s; }
+.eq-bar:nth-child(4) { animation-delay: 0.5s; }
+.eq-bar:nth-child(5) { animation-delay: 0.15s; }
+
+.chef-stat-box {
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+}
+.chef-stat-box:hover {
+  transform: translateY(-4px);
+  border-color: #E8C77A !important;
+  box-shadow: 0 10px 30px rgba(232, 199, 122, 0.25);
+}
+
+.chef-seal-badge {
+  animation: pulseGoldGlow 3s infinite ease-in-out;
+}
+@keyframes pulseGoldGlow {
+  0%, 100% { box-shadow: 0 4px 16px rgba(232, 199, 122, 0.25); }
+  50% { box-shadow: 0 4px 26px rgba(232, 199, 122, 0.6); }
+}
+
+.dossier-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.dossier-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(232, 199, 122, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(232, 199, 122, 0.12);
+}
+
+/* Light Mode Overrides for Section 04 (Instructor) */
+html.light #instructor {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.3) !important;
+}
+html.light #instructor h2,
+html.light #instructor h3,
+html.light #instructor h4 {
+  color: #1A0B06 !important;
+}
+html.light #instructor p {
+  color: #4A2415 !important;
+}
+html.light #instructor .dossier-tab-btn {
+  background-color: #FFFFFF !important;
+  color: #1A0B06 !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+}
+html.light #instructor .dossier-tab-btn.active {
+  background: #B89452 !important;
+  color: #FFFFFF !important;
+  border-color: #B89452 !important;
+  box-shadow: 0 4px 16px rgba(184, 148, 82, 0.3) !important;
+}
+html.light #instructor .chef-stat-box,
+html.light #instructor .dossier-card,
+html.light #instructor .bg-\[\#1A0B06\],
+html.light #instructor .bg-\[\#140703\],
+html.light #instructor .bg-\[\#241008\] {
+  background-color: #FFFFFF !important;
+  border-color: rgba(184, 148, 82, 0.35) !important;
+  box-shadow: 0 6px 18px rgba(26, 11, 6, 0.06) !important;
+}
+html.light #instructor .chef-stat-box:hover,
+html.light #instructor .dossier-card:hover {
+  border-color: #B89452 !important;
+  box-shadow: 0 10px 24px rgba(184, 148, 82, 0.2) !important;
+}
+html.light #instructor .chef-stat-box span.text-\[\#E8C77A\],
+html.light #instructor span.text-\[\#E8C77A\],
+html.light #instructor .text-\[\#E8C77A\] {
+  color: #9E6A38 !important;
+}
+html.light #instructor .chef-stat-box span.text-\[\#D9B866\],
+html.light #instructor .text-\[\#D9B866\] {
+  color: #1A0B06 !important;
+}
+html.light #instructor .chef-stat-box span.text-\[\#F7E8C2\/60\],
+html.light #instructor .text-\[\#F7E8C2\] {
+  color: #5C321E !important;
+}
+html.light #instructor [class*="bg-gradient-to-r"][class*="from-[#1A0B06]"],
+html.light #instructor [class*="bg-gradient-to-b"][class*="from-[#1A0B06]"] {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F2E7 100%) !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+}
+html.light #instructor [class*="bg-gradient-to-r"] p,
+html.light #instructor [class*="bg-gradient-to-b"] p {
+  color: #1A0B06 !important;
+}
+html.light #instructor .eq-bar {
+  background-color: #B89452 !important;
+}
+.audio-resonance-box {
+  background-color: #241008 !important;
+  border-color: rgba(232, 199, 122, 0.4) !important;
+}
+.audio-resonance-text {
+  color: #FFD700 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+}
+html.light #instructor .audio-resonance-box {
+  background-color: #2B1408 !important;
+  border-color: #B89452 !important;
+  box-shadow: 0 4px 12px rgba(43, 20, 8, 0.15) !important;
+}
+html.light #instructor .audio-resonance-text {
+  color: #FFE8A8 !important;
+  font-weight: 700 !important;
+}
+html.light #instructor .wax-sealed-badge {
+  background-color: #FAF5EE !important;
+  border-color: #B89452 !important;
+  color: #8A4A1C !important;
+  font-weight: 700 !important;
+}
+html.light #instructor img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  display: block !important;
+}
+
+/* ==========================================================================
+   SECTION 03: CORPORATE TIER HAMPERS (SUITE SHOWCASE & ANIMATIONS)
+   ========================================================================== */
+@keyframes hamperFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes goldGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(232, 199, 122, 0.25), 0 20px 40px rgba(0, 0, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(232, 199, 122, 0.45), 0 25px 50px rgba(0, 0, 0, 0.85);
+  }
+}
+
+.animate-hamper-float {
+  animation: hamperFloat 4s ease-in-out infinite;
+}
+
+.hamper-suite-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hamper-suite-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(232, 199, 122, 0.8) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(232, 199, 122, 0.15);
+}
+
+.hamper-featured-suite {
+  animation: goldGlowPulse 4s infinite ease-in-out;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.hamper-featured-suite:hover {
+  transform: translateY(-10px);
+}
+
+.hamper-pill-tag {
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.hamper-pill-tag:hover {
+  background-color: rgba(232, 199, 122, 0.18);
+  border-color: #E8C77A;
+  transform: translateY(-1px);
+}
+
+.hamper-filter-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hamper-filter-btn.active-hamper {
+  background-color: #E8C77A !important;
+  color: #1A0B06 !important;
+  border-color: #E8C77A !important;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(232, 199, 122, 0.35);
+}
+
+/* Default / Dark Mode Hampers Typography & Surfaces */
+#hampers .hamper-suite-card {
+  background-color: #1A0B06 !important;
+  background-image: none !important;
+}
+#hampers .hamper-featured-suite {
+  background-color: #241008 !important;
+  background-image: none !important;
+}
+#hampers .hamper-title {
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+#hampers .hamper-desc {
+  color: #FFFDF0 !important;
+  font-weight: 400;
+}
+#hampers .hamper-price {
+  color: #FFD700 !important;
+  font-weight: 800;
+}
+#hampers .hamper-label {
+  color: #FFE8A8 !important;
+  font-weight: 700;
+}
+#hampers .hamper-min-order {
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+#hampers .hamper-pill-tag {
+  background-color: #2B1309 !important;
+  border-color: rgba(232, 199, 122, 0.5) !important;
+  color: #FFE8A8 !important;
+  font-weight: 600;
+}
+
+/* Light Mode Overrides for Section 03 (Hampers) */
+html.light #hampers {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.3) !important;
+}
+html.light #hampers h2 {
+  color: #1A0B06 !important;
+}
+html.light #hampers p {
+  color: #2D1409 !important;
+}
+html.light #hampers .hamper-suite-card,
+html.light #hampers .hamper-featured-suite {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(26, 11, 6, 0.08) !important;
+}
+html.light #hampers .hamper-suite-card:hover {
+  border-color: #B89452 !important;
+  box-shadow: 0 16px 36px rgba(184, 148, 82, 0.2) !important;
+}
+html.light #hampers .hamper-featured-suite {
+  border-color: #B89452 !important;
+  box-shadow: 0 14px 38px rgba(184, 148, 82, 0.28) !important;
+}
+html.light #hampers .hamper-title {
+  color: #1A0B06 !important;
+}
+html.light #hampers .hamper-desc {
+  color: #3D1C0E !important;
+}
+html.light #hampers .hamper-price {
+  color: #8A4A1C !important;
+}
+html.light #hampers .hamper-label {
+  color: #633522 !important;
+}
+html.light #hampers .hamper-min-order {
+  color: #1A0B06 !important;
+}
+html.light #hampers .hamper-pill-tag {
+  background-color: #F6EFE6 !important;
+  border-color: rgba(184, 148, 82, 0.45) !important;
+  color: #241008 !important;
+  font-weight: 600 !important;
+}
+html.light #hampers .hamper-pill-tag:hover {
+  background-color: #EFE4D2 !important;
+  border-color: #B89452 !important;
+}
+html.light #hampers .hamper-filter-btn {
+  background-color: #FFFFFF !important;
+  color: #1A0B06 !important;
+  border-color: rgba(184, 148, 82, 0.45) !important;
+  font-weight: 700 !important;
+}
+html.light #hampers .hamper-filter-btn.active-hamper {
+  background-color: #B89452 !important;
+  color: #FFFFFF !important;
+  border-color: #B89452 !important;
+  box-shadow: 0 4px 15px rgba(184, 148, 82, 0.3) !important;
+}
+html.light #hampers img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  display: block !important;
+}
+
+/* Hampers Eyebrow Badge & Elements in Light Mode */
+#hampers .hamper-eyebrow-badge {
+  background-color: #1A0B06;
+  border-color: rgba(232, 199, 122, 0.6);
+  color: #FFE8A8;
+}
+
+html.light #hampers .hamper-eyebrow-badge {
+  background-color: #FFFFFF !important;
+  border-color: #B89452 !important;
+  color: #1A0B06 !important;
+  box-shadow: 0 4px 14px rgba(26, 11, 6, 0.08) !important;
+}
+html.light #hampers .hamper-eyebrow-badge span,
+html.light #hampers .hamper-eyebrow-badge .hamper-eyebrow-text {
+  color: #1A0B06 !important;
+  font-weight: 800 !important;
+}
+html.light #hampers .hamper-eyebrow-badge .hamper-eyebrow-dot {
+  background-color: #B89452 !important;
+}
+html.light #hampers h2 span {
+  color: #8A4A1C !important;
+}
+html.light #hampers .privilege-icon-box {
+  background-color: #F6EFE6 !important;
+  border-color: rgba(184, 148, 82, 0.5) !important;
+  color: #8A4A1C !important;
+}
+
+/* ==========================================================================
+   SECTION 04: CORPORATE LOGISTICS PIPELINE & TIMELINE
+   ========================================================================== */
+#logistics {
+  position: relative;
+  background-color: #0F0502;
+}
+
+.logistics-step-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.logistics-step-card:hover {
+  transform: translateY(-8px);
+  border-color: #FFD700 !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 25px rgba(232, 199, 122, 0.2);
+}
+
+.logistics-node-number {
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logistics-step-card:hover .logistics-node-number {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.logistics-assurance-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+.logistics-assurance-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(232, 199, 122, 0.8) !important;
+}
+
+/* Light Mode Overrides for Section 04 (Logistics) */
+html.light #logistics {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.3) !important;
+}
+html.light #logistics .timeline-heading,
+html.light #logistics h2 {
+  color: #1A0B06 !important;
+}
+html.light #logistics .timeline-heading span,
+html.light #logistics h2 span {
+  color: #8A4A1C !important;
+}
+html.light #logistics .timeline-subtext,
+html.light #logistics p.timeline-subtext {
+  color: #2D1409 !important;
+}
+html.light #logistics .timeline-eyebrow-badge {
+  background-color: #FFFFFF !important;
+  border-color: #B89452 !important;
+  color: #1A0B06 !important;
+  box-shadow: 0 4px 14px rgba(26, 11, 6, 0.08) !important;
+}
+html.light #logistics .timeline-eyebrow-badge span.timeline-badge-text {
+  color: #1A0B06 !important;
+  font-weight: 800 !important;
+}
+html.light #logistics .timeline-telemetry-ribbon {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+html.light #logistics .timeline-telemetry-item {
+  color: #1A0B06 !important;
+  font-weight: 700 !important;
+}
+html.light #logistics .timeline-telemetry-item span {
+  color: #8A4A1C !important;
+}
+html.light #logistics .timeline-telemetry-ribbon > span {
+  color: rgba(138, 74, 28, 0.4) !important;
+}
+html.light #logistics .timeline-pipeline-track {
+  background: linear-gradient(90deg, rgba(184, 148, 82, 0.2) 0%, rgba(184, 148, 82, 0.8) 50%, rgba(184, 148, 82, 0.2) 100%) !important;
+}
+html.light #logistics .logistics-step-card {
+  background-color: #FFFFFF !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(26, 11, 6, 0.07) !important;
+}
+html.light #logistics .logistics-step-card:hover {
+  border-color: #B89452 !important;
+  box-shadow: 0 16px 36px rgba(184, 148, 82, 0.2) !important;
+}
+html.light #logistics .logistics-step-title {
+  color: #1A0B06 !important;
+}
+html.light #logistics .logistics-step-desc {
+  color: #3D1C0E !important;
+}
+html.light #logistics .logistics-step-pill {
+  background-color: #F6EFE6 !important;
+  border-color: rgba(184, 148, 82, 0.45) !important;
+  color: #241008 !important;
+  font-weight: 600 !important;
+}
+html.light #logistics .logistics-node-number {
+  background-color: #B89452 !important;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+html.light #logistics .logistics-phase-badge {
+  background-color: #F6EFE6 !important;
+  border-color: rgba(184, 148, 82, 0.5) !important;
+  color: #8A4A1C !important;
+  font-weight: 700 !important;
+}
+html.light #logistics .logistics-console-box {
+  background-color: #FFFFFF !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+  box-shadow: 0 14px 38px rgba(26, 11, 6, 0.08) !important;
+}
+html.light #logistics .logistics-assurance-card {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.35) !important;
+}
+html.light #logistics .logistics-assurance-card:hover {
+  border-color: #B89452 !important;
+  background-color: #F6EFE6 !important;
+}
+html.light #logistics .logistics-assurance-card h4 {
+  color: #1A0B06 !important;
+}
+html.light #logistics .logistics-assurance-card p {
+  color: #3D1C0E !important;
+}
+
+#logistics img,
+html.light #logistics img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  display: block !important;
+}
+
+html.light #logistics .logistics-telemetry-badge {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+}
+html.light #logistics .logistics-telemetry-badge span {
+  color: #1A0B06 !important;
+}
+html.light #logistics .logistics-telemetry-badge p {
+  color: #3D1C0E !important;
+}
+
+/* ==========================================================================
+   STRICT ONE-LINE TELEMETRY RIBBON & DELIVERABLE BADGES (ALL SCREEN SIZES)
+   ========================================================================== */
+.timeline-telemetry-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.timeline-telemetry-ribbon {
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 1024px) {
+  .timeline-telemetry-ribbon {
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+  }
+}
+
+.timeline-telemetry-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.timeline-telemetry-item svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+}
+
+html.light #logistics .timeline-telemetry-item svg {
+  color: #8A4A1C !important;
+  stroke: #8A4A1C !important;
+}
+
+.logistics-step-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  font-size: 10px !important;
+}
+
+/* ==========================================================================
+   CTA SECTION: VIBRANT LUXURY BACKGROUND IMAGERY (ALL MODES & DEVICES)
+   ========================================================================== */
+.cta-section {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.cta-bg-image {
+  opacity: 0.55 !important;
+  transform: scale(1.02);
+  transition: transform 1.2s ease, opacity 0.5s ease;
+  filter: brightness(0.95) contrast(1.1) !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.cta-gradient-overlay {
+  background-image: linear-gradient(to top, rgba(26, 11, 6, 0.88) 0%, rgba(26, 11, 6, 0.5) 50%, rgba(26, 11, 6, 0.88) 100%) !important;
+}
+
+/* Light Mode CTA Section: Rich visible imagery with luminous ivory scrim */
+html.light .cta-bg-image,
+html.light section.cta-section > div:first-child > img,
+html.light section[class*="py-24"][class*="bg-[#1A0B06]"]:last-of-type img {
+  opacity: 0.48 !important;
+  filter: brightness(1.02) contrast(1.12) !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+html.light .cta-gradient-overlay,
+html.light section.cta-section > div:first-child > [class*="bg-gradient-to-t"],
+html.light section[class*="py-24"][class*="bg-[#1A0B06]"]:last-of-type [class*="bg-gradient-to-t"] {
+  background-image: linear-gradient(to top, rgba(255, 253, 249, 0.88) 0%, rgba(255, 253, 249, 0.55) 50%, rgba(255, 253, 249, 0.88) 100%) !important;
+}
+
+/* ==========================================================================
+   HAMPER SUITE CARDS: STRICT EQUAL HEIGHT & BUTTON ALIGNMENT (IPAD PRO / TABLET)
+   ========================================================================== */
+.hamper-suite-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  justify-content: space-between !important;
+}
+
+.hamper-suite-card .hamper-card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+.hamper-suite-card .hamper-title {
+  min-height: 2.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.hamper-suite-card .hamper-desc {
+  min-height: 4.5rem !important;
+  display: flex !important;
+  align-items: flex-start !important;
+}
+
+.hamper-suite-card > div:last-child {
+  margin-top: auto !important;
+}
+
+/* ==========================================================================
+   CONTACT FORM CONTROLS & DATE PICKER (HIGH CONTRAST & WHITE CALENDAR ICON)
+   ========================================================================== */
+.form-input-luxury {
+  background-color: #1A0B06 !important;
+  color: #FFFFFF !important;
+  border-color: rgba(232, 199, 122, 0.45) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.form-input-luxury:focus {
+  border-color: #FFD700 !important;
+  box-shadow: 0 0 0 2px rgba(232, 199, 122, 0.25) !important;
+  outline: none !important;
+}
+
+.form-input-luxury::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+
+/* Select options styling for clear readability */
+select.form-input-luxury {
+  color: #FFFFFF !important;
+  background-color: #1A0B06 !important;
+}
+
+select.form-input-luxury option {
+  background-color: #1A0B06 !important;
+  color: #FFFFFF !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 12px 14px !important;
+}
+
+select.form-input-luxury option:hover,
+select.form-input-luxury option:focus,
+select.form-input-luxury option:checked {
+  background-color: #35170D !important;
+  color: #FFD700 !important;
+}
+
+/* 100% White Calendar Picker Icon */
+input[type="date"].form-input-luxury::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2) contrast(1.5) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+}
+
+/* Date picker text fields */
+input[type="date"].form-input-luxury::-webkit-datetime-edit,
+input[type="date"].form-input-luxury::-webkit-datetime-edit-fields-wrapper,
+input[type="date"].form-input-luxury::-webkit-datetime-edit-text,
+input[type="date"].form-input-luxury::-webkit-datetime-edit-month-field,
+input[type="date"].form-input-luxury::-webkit-datetime-edit-day-field,
+input[type="date"].form-input-luxury::-webkit-datetime-edit-year-field {
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+}
+
+/* Light Mode Overrides for Contact Form */
+html.light .form-input-luxury {
+  background-color: #241008 !important;
+  color: #FFFFFF !important;
+  border-color: rgba(184, 148, 82, 0.6) !important;
+}
+
+html.light .form-input-luxury::placeholder {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html.light select.form-input-luxury option {
+  background-color: #241008 !important;
+  color: #FFFFFF !important;
+}
+
+html.light select.form-input-luxury option:hover,
+html.light select.form-input-luxury option:focus,
+html.light select.form-input-luxury option:checked {
+  background-color: #452112 !important;
+  color: #FFD700 !important;
+}
+
+html.light input[type="date"].form-input-luxury::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2) contrast(1.5) !important;
+  opacity: 1 !important;
+}
+
+html.light input[type="date"].form-input-luxury::-webkit-datetime-edit,
+html.light input[type="date"].form-input-luxury::-webkit-datetime-edit-fields-wrapper,
+html.light input[type="date"].form-input-luxury::-webkit-datetime-edit-text,
+html.light input[type="date"].form-input-luxury::-webkit-datetime-edit-month-field,
+html.light input[type="date"].form-input-luxury::-webkit-datetime-edit-day-field,
+html.light input[type="date"].form-input-luxury::-webkit-datetime-edit-year-field {
+  color: #FFFFFF !important;
+}
+
+html.light .form-label-luxury {
+  color: #8A4A1C !important;
+  font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   CONTACT PAGE INFO CARDS: STRICT EQUAL HEIGHT & BALANCED ALIGNMENT
+   ========================================================================== */
+.contact-info-card,
+.luxury-card.contact-info-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  align-self: stretch !important;
+}
+
+.contact-info-card > div:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+}
+
+.contact-info-card h3 {
+  min-height: 2.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.contact-info-card .contact-card-body {
+  min-height: 5.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex: 1 1 auto !important;
+  margin-bottom: 0 !important;
+}
+
+.contact-info-card .contact-card-body p,
+.contact-info-card .contact-card-body div {
+  margin-bottom: 0 !important;
+  line-height: 1.6 !important;
+}
+
+.contact-info-card > div:last-child {
+  margin-top: auto !important;
+  flex-shrink: 0 !important;
+}
+
+/* Light Mode Overrides for Contact Info Cards */
+html.light .contact-info-card {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.3) !important;
+  box-shadow: 0 4px 16px rgba(26, 11, 6, 0.06) !important;
+}
+
+html.light .contact-info-card:hover {
+  border-color: rgba(184, 148, 82, 0.6) !important;
+  box-shadow: 0 12px 28px rgba(26, 11, 6, 0.12) !important;
+}
+
+html.light .contact-info-card [class*="bg-[#241008]"] {
+  background-color: #EFE4D6 !important;
+  color: #8A5535 !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+}
+
+html.light .contact-info-card h3 {
+  color: #1A0B06 !important;
+}
+
+html.light .contact-info-card .contact-card-body,
+html.light .contact-info-card .contact-card-body p,
+html.light .contact-info-card .contact-card-body span {
+  color: #35170D !important;
+}
+
+html.light .contact-info-card .contact-card-body [class*="text-[#FFF4D6]"] {
+  color: #1A0B06 !important;
+}
+
+html.light .contact-info-card > div:last-child p {
+  color: #8A5535 !important;
+}
+
+/* ==========================================================================
+   LOGIN PORTAL: DEDICATED LUXURY STYLING & LIGHT MODE PARITY
+   ========================================================================== */
+.login-page-bg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0A0503;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(232, 199, 122, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(53, 23, 13, 0.6) 0%, transparent 50%);
+}
+
+html.light .login-page-bg {
+  background-color: #F7E8C2 !important;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(232, 199, 122, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(250, 245, 238, 0.7) 0%, transparent 50%) !important;
+}
+
+.login-portal-card {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(232, 199, 122, 0.2);
+}
+
+html.light .login-portal-card {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.4) !important;
+  box-shadow: 0 25px 60px -15px rgba(26, 11, 6, 0.15), 0 0 0 1px rgba(184, 148, 82, 0.25) !important;
+}
+
+html.light .login-portal-card h1,
+html.light .login-portal-card h2,
+html.light .login-portal-card h3 {
+  color: #1A0B06 !important;
+}
+
+html.light .login-portal-card p,
+html.light .login-portal-card span.text-sub {
+  color: #4A2415 !important;
+}
+
+html.light .login-tab-btn {
+  color: #633522 !important;
+}
+
+html.light .login-tab-btn.active {
+  background-color: #EFE4D6 !important;
+  color: #1A0B06 !important;
+  border-color: #B89452 !important;
+}
+
+html.light .login-quick-demo-btn {
+  background-color: #EFE4D6 !important;
+  color: #35170D !important;
+  border-color: rgba(184, 148, 82, 0.35) !important;
+}
+
+html.light .login-quick-demo-btn:hover {
+  background-color: #E8C77A !important;
+  color: #1A0B06 !important;
+}
+
+/* Header Login Button */
+.header-login-btn {
+  background-color: rgba(36, 16, 8, 0.7);
+  border: 1px solid rgba(232, 199, 122, 0.4);
+  color: #FFF4D6;
+  transition: all 0.25s ease;
+}
+
+.header-login-btn:hover {
+  background-color: #E8C77A !important;
+  border-color: #E8C77A !important;
+  color: #1A0B06 !important;
+  transform: translateY(-1px);
+}
+
+.header-login-btn:hover svg {
+  color: #1A0B06 !important;
+}
+
+html.light .header-login-btn {
+  background-color: #FAF5EE !important;
+  border-color: rgba(184, 148, 82, 0.45) !important;
+  color: #1A0B06 !important;
+}
+
+html.light .header-login-btn:hover {
+  background-color: #E8C77A !important;
+  border-color: #E8C77A !important;
+  color: #1A0B06 !important;
+}
+
+html.light .header-login-btn svg {
+  color: #8A5535 !important;
+}
+
+html.light .header-login-btn:hover svg {
+  color: #1A0B06 !important;
+}
+
+
+
+
+
+
+
+
+

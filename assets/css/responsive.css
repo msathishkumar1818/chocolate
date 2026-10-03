@@ -1,0 +1,434 @@
+/* ==========================================================================
+   MAISON DU CACAO — RESPONSIVE STYLING ADJUSTMENTS
+   Breakpoints: 
+   - Mobile: 320px, 360px, 375px (iPhone SE), 390px (iPhone 14/15/16), 412px (Pixel 7/8/9/10), 428px/430px
+   - Tablet: 768px (iPad), 820px (iPad Air)
+   - iPad Pro: 1024px (iPad Pro 11"/13" portrait), 1194px, 1366px (iPad Pro 13" landscape)
+   - Desktop: 1280px, 1440px, 1920px+
+   ========================================================================== */
+
+/* Universal Grid & Card Equality (Even Height & Even Content Distribution) */
+.grid {
+  align-items: stretch !important;
+}
+
+.luxury-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  justify-content: flex-start !important;
+}
+
+/* Standalone image card: image stretches 100% to fill container without any bottom gap */
+.luxury-card > img:only-child,
+.luxury-card.image-only-card > img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  flex: 1 1 100% !important;
+  flex-grow: 1 !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.luxury-card .img-zoom-wrapper {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+}
+
+.luxury-card .img-zoom-wrapper + div,
+.luxury-card > div:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  justify-content: space-between !important;
+}
+
+.luxury-card h3 {
+  display: block !important;
+  min-height: 3.5rem;
+  line-height: 1.3;
+}
+
+.luxury-card p,
+.luxury-card > div:last-child p {
+  flex-grow: 1 !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.6 !important;
+}
+
+.luxury-card > div:last-child > .border-t,
+.luxury-card > div:last-child > div:last-child,
+.luxury-card > div:last-child > a:last-child,
+.luxury-card > div:last-child > button:last-child,
+.luxury-card > .border-t,
+.luxury-card > span:last-child,
+.luxury-card > div.pt-4,
+.luxury-card > div.pt-5,
+.luxury-card > div.pt-6 {
+  margin-top: auto !important;
+}
+
+/* Specific Equalization for Testimonials / Reviews (Cards without image) */
+.testimonial-card,
+.luxury-card.testimonial-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+}
+
+.testimonial-card > div:first-child,
+.luxury-card.testimonial-card > div:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  justify-content: flex-start !important;
+}
+
+.testimonial-card > div:first-child p,
+.luxury-card.testimonial-card > div:first-child p {
+  flex-grow: 1 !important;
+  min-height: 110px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0 !important;
+}
+
+.testimonial-card > div:last-child,
+.luxury-card.testimonial-card > div:last-child {
+  margin-top: auto !important;
+  flex: 0 0 auto !important;
+  flex-grow: 0 !important;
+  width: 100% !important;
+}
+
+/* Milestone Navigator Pills */
+[href^="#stage-"] {
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Mobile Screens (< 640px: iPhone SE, iPhone 12-16, Google Pixel 7-10) */
+@media (max-width: 639px) {
+  .site-header {
+    height: 64px !important;
+  }
+
+  .site-header .header-container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    gap: 0.35rem !important;
+  }
+
+  .brand-name-text {
+    font-size: 1rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .brand-subtitle {
+    font-size: 0.52rem !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .theme-toggle-luxury, .rtl-toggle-luxury {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    border-radius: 9999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .site-header #mobile-menu-toggle {
+    width: 34px !important;
+    height: 34px !important;
+    padding: 0.35rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  h1 {
+    font-size: 2.15rem !important;
+    line-height: 1.15 !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .btn-gold:not(.luxury-card .btn-gold),
+  .btn-outline-gold:not(.luxury-card .btn-outline-gold) {
+    padding: 0.65rem 1.15rem !important;
+    font-size: 0.85rem !important;
+    width: 100% !important;
+  }
+
+  .luxury-card .btn-gold,
+  .luxury-card .btn-outline-gold {
+    width: auto !important;
+    padding: 0.42rem 0.9rem !important;
+    font-size: 0.72rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-stack-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .section-padding {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .container-tight {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Tablet & iPad adjustments (640px - 1023px) */
+/* Mobile & Tablet Header (< 1024px) — STRICTLY: Brand Logo, Brand Text, Subtitle, Dark Mode, RTL, Menu Button ONLY */
+@media (max-width: 1023px) {
+  .site-header .nav-link,
+  .site-header nav,
+  .site-header .header-cta {
+    display: none !important;
+  }
+
+  .site-header .header-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .theme-toggle-luxury, .rtl-toggle-luxury {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    padding: 0 !important;
+    border-radius: 9999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .theme-toggle-luxury .theme-badge,
+  .rtl-toggle-luxury .rtl-badge {
+    display: none !important;
+  }
+
+  .site-header #mobile-menu-toggle {
+    width: 34px !important;
+    height: 34px !important;
+    padding: 0.35rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .tablet-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .tablet-col-reverse {
+    flex-direction: column-reverse !important;
+  }
+
+  /* Tailored Tablet Mobile Drawer Width */
+  .mobile-drawer-fixed > div {
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* iPad & Tablet Card Layout Optimization (iPad Mini 768px, iPad Air 820px) */
+  .luxury-card > div:last-child {
+    padding: 1rem !important;
+  }
+
+  .luxury-card .btn-gold,
+  .luxury-card .btn-outline-gold {
+    width: auto !important;
+    padding: 0.35rem 0.65rem !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.02em !important;
+    flex-shrink: 0 !important;
+  }
+
+  .luxury-card .border-t {
+    gap: 0.5rem !important;
+  }
+
+  .luxury-card h3 {
+    font-size: 1.15rem !important;
+    min-height: 2.85rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .luxury-card p {
+    font-size: 0.72rem !important;
+    min-height: 4.25rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* iPad Pro (1024px - 1279px: iPad Pro 11" & 12.9"/13" Portrait) — Strict One-Line Nav */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .site-header .header-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .brand-name-text {
+    font-size: 1.125rem !important;
+  }
+
+  .brand-subtitle {
+    font-size: 0.58rem !important;
+  }
+
+  .site-header nav {
+    gap: 0.65rem !important;
+    flex-shrink: 1 !important;
+  }
+
+  .site-header .nav-link {
+    font-size: 0.6875rem !important; /* 11px compact luxury */
+    font-weight: 500 !important;
+    padding-left: 0.15rem !important;
+    padding-right: 0.15rem !important;
+    letter-spacing: 0.08em !important;
+    white-space: nowrap !important;
+  }
+
+  .theme-toggle-luxury, .rtl-toggle-luxury {
+    padding: 0.35rem 0.55rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .site-header .header-cta {
+    padding: 0.4rem 0.65rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* iPad Pro 13" Landscape & Desktop (1280px - 1439px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .site-header nav {
+    gap: 1.15rem !important;
+  }
+
+  .site-header .nav-link {
+    font-size: 0.72rem !important; /* 11.5px refined luxury */
+    font-weight: 500 !important;
+    letter-spacing: 0.12em !important;
+  }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .site-header nav {
+    gap: 1.35rem !important;
+  }
+
+  .site-header .nav-link {
+    font-size: 0.75rem !important; /* 12px delicate luxury */
+    font-weight: 500 !important;
+    letter-spacing: 0.14em !important;
+  }
+}
+
+/* Ultra Wide screen luxury container limiter (1920px+) */
+@media (min-width: 1920px) {
+  .max-w-7xl {
+    max-width: 1560px !important;
+  }
+}
+
+/* ==========================================================================
+   IPAD PRO (1024px) & CROSS-DEVICE CARD EQUALITY & BUTTON ORDER ALIGNMENT
+   ========================================================================== */
+.hamper-suite-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  justify-content: space-between !important;
+}
+
+.hamper-suite-card .hamper-card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+.hamper-suite-card .hamper-title {
+  min-height: 2.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.hamper-suite-card .hamper-desc {
+  min-height: 4.5rem !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  flex-grow: 1 !important;
+}
+
+.hamper-suite-card > div:last-child {
+  margin-top: auto !important;
+  width: 100% !important;
+}
+
+/* Contact Info Cards Equality Across All Screens */
+.contact-info-card,
+.luxury-card.contact-info-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  align-self: stretch !important;
+}
+
+.contact-info-card > div:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+}
+
+.contact-info-card h3 {
+  min-height: 2.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.contact-info-card .contact-card-body {
+  min-height: 5.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex: 1 1 auto !important;
+}
+
+.contact-info-card > div:last-child {
+  margin-top: auto !important;
+  flex-shrink: 0 !important;
+}
+
+

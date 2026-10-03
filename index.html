@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison du Cacao — Handcrafted Chocolate Studio & Bean-to-Bar Atelier</title>
+  <meta name="description"
+    content="Discover Maison du Cacao: artisanal bean-to-bar chocolate making, single-origin dark tablets, hand-dipped ganache truffles, masterclasses, and bespoke luxury gifting.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon-cacao.svg">
+
+  <!-- Tailwind CSS CDN with Custom Palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary-dark': '#1A0B06',
+            'deep-espresso': '#241008',
+            'chocolate-brown': '#35170D',
+            'cocoa-brown': '#4A2415',
+            'warm-brown': '#633522',
+            'caramel': '#8A5535',
+            'champagne-gold': '#E8C77A',
+            'soft-gold': '#D9B866',
+            'border-gold': '#B89452',
+            'warm-ivory': '#FFF4D6',
+            'cream': '#F7E8C2',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body class="bg-black text-[#F7E8C2] font-sans antialiased selection:bg-[#E8C77A] selection:text-[#1A0B06]">
+
+  <!-- Branded Page Loader -->
+  <div id="page-loader" role="status" aria-label="Loading Maison du Cacao">
+    <div class="flex flex-col items-center">
+      <div class="loader-pod-pulse w-16 h-16 mb-4">
+        <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
+          <circle cx="24" cy="24" r="23" fill="#1A0B06" stroke="#E8C77A" stroke-width="2" />
+          <path d="M24 8C17 14 14 22 17 30C19 35 24 40 24 40C24 40 29 35 31 30C34 22 31 14 24 8Z" fill="#35170D"
+            stroke="#E8C77A" stroke-width="1.8" />
+          <path d="M24 8V40" stroke="#E8C77A" stroke-width="1.2" />
+          <circle cx="24" cy="24" r="2" fill="#E8C77A" />
+        </svg>
+      </div>
+      <span class="font-serif text-lg tracking-widest text-[#FFF4D6] uppercase">Maison du Cacao</span>
+      <span class="text-xs text-[#E8C77A] tracking-widest mt-1">Artisan Atelier &amp; Chocolaterie</span>
+    </div>
+  </div>
+
+  <!-- Fixed Sleek Header (64px Height, Never Scrolls Away, 100% Single Line) -->
+  <header class="site-header">
+    <div
+      class="header-container max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-2 sm:gap-4">
+
+      <!-- Brand Logo & Name with Subtitle (Always Clear on 1 Line) -->
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0"
+        aria-label="Maison du Cacao Home">
+        <div
+          class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-[#E8C77A] p-0.5 sm:p-1 bg-[#241008] flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
+            <circle cx="24" cy="24" r="22" fill="#1A0B06" stroke="#E8C77A" stroke-width="1.5" />
+            <path d="M24 8C17 14 14 22 17 30C19 35 24 40 24 40C24 40 29 35 31 30C34 22 31 14 24 8Z" fill="#35170D"
+              stroke="#E8C77A" stroke-width="1.8" />
+            <path d="M24 8V40" stroke="#E8C77A" stroke-width="1.2" />
+            <circle cx="24" cy="24" r="2" fill="#E8C77A" />
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-serif text-sm xs:text-base sm:text-lg lg:text-xl tracking-wider brand-name-text font-bold whitespace-nowrap group-hover:text-[#E8C77A] transition-colors leading-tight">Maison
+            du Cacao</span>
+          <span
+            class="text-[8px] sm:text-[9px] tracking-[0.2em] uppercase whitespace-nowrap brand-subtitle text-[#D9B866] leading-none mt-0.5">Atelier
+            &amp; Boutique</span>
+        </div>
+      </a>
+
+      <!-- Desktop & iPad Pro Navigation: EXACTLY 6 Items on a Single Line -->
+      <nav class="hidden lg:flex items-center gap-2.5 xl:gap-5 flex-shrink-0" aria-label="Primary Navigation">
+
+        <!-- 1. Home Item with Click-Only Dropdown (ACTIVE) -->
+        <div class="relative">
+          <button id="home-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false"
+            class="nav-link active flex items-center gap-1 text-[11px] xl:text-xs uppercase tracking-[0.14em] font-medium py-1 focus:outline-none">
+            <span>Home</span>
+            <svg class="w-3 h-3 text-[#E8C77A] transition-transform duration-200" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div id="home-dropdown-menu"
+            class="dropdown-menu absolute left-0 mt-2 w-56 bg-[#241008] border border-[#E8C77A]/30 rounded-md shadow-2xl py-2 z-50">
+            <a href="index.html"
+              class="block px-4 py-2 text-xs tracking-wider uppercase text-[#E8C77A] font-semibold hover:bg-[#35170D] transition-colors border-b border-[#E8C77A]/10">
+              <span class="font-semibold block">Home 1: Bean-to-Bar</span>
+              <span class="text-[11px] text-[#D9B866] normal-case">Artisan Atelier &amp; Origins</span>
+            </a>
+            <a href="home-2.html"
+              class="block px-4 py-2 text-xs tracking-wider uppercase text-[#FFF4D6] hover:bg-[#35170D] hover:text-[#E8C77A] transition-colors">
+              <span class="font-semibold block">Home 2: Tasting Lounge</span>
+              <span class="text-[11px] text-[#D9B866] normal-case">Boutique Drops &amp; Pairings</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Collections -->
+        <a href="products.html" class="nav-link text-[11px] xl:text-xs uppercase tracking-[0.14em] font-medium py-1">
+          Collections
+        </a>
+
+        <!-- 3. Workshops & Classes -->
+        <a href="classes.html" class="nav-link text-[11px] xl:text-xs uppercase tracking-[0.14em] font-medium py-1">
+          Workshops
+        </a>
+
+        <!-- 4. Gifting -->
+        <a href="gifting.html" class="nav-link text-[11px] xl:text-xs uppercase tracking-[0.14em] font-medium py-1">
+          Gifting
+        </a>
+
+        <!-- 5. About -->
+        <a href="about.html" class="nav-link text-[11px] xl:text-xs uppercase tracking-[0.14em] font-medium py-1">
+          About
+        </a>
+
+        <!-- 6. Contact -->
+        <a href="contact.html" class="nav-link text-[11px] xl:text-xs uppercase tracking-[0.14em] font-medium py-1">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Header Controls: RTL/LTR, Dark Mode & CTA (Desktop & Mobile) -->
+      <div class="flex items-center gap-1 sm:gap-2.5 flex-shrink-0">
+
+        <!-- Dark/Light Mode Toggle -->
+        <button type="button" class="theme-toggle-btn theme-toggle-luxury" aria-label="Toggle color mode"
+          title="Switch Theme">
+          <svg class="theme-icon-moon w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg class="theme-icon-sun w-3.5 h-3.5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <span class="theme-badge text-[10px] hidden lg:inline">DARK</span>
+        </button>
+
+        <!-- RTL/LTR Toggle -->
+        <button type="button" class="rtl-toggle-btn rtl-toggle-luxury" aria-label="Toggle text direction LTR/RTL"
+          title="Switch Direction">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+          <span class="rtl-badge hidden lg:inline">LTR</span>
+        </button>
+
+        <!-- Client Login Button -->
+        <a href="login.html"
+          class="header-login-btn inline-flex items-center gap-1 sm:gap-1.5 text-[11px] xl:text-xs uppercase tracking-wider font-semibold py-1.5 px-2.5 sm:px-3 rounded-full border border-[#E8C77A]/40 text-[#FFF4D6] hover:text-[#1A0B06] hover:bg-[#E8C77A] hover:border-[#E8C77A] transition-all duration-200 shadow-sm whitespace-nowrap"
+          title="Client Portal Login" aria-label="Sign in to client portal">
+          <svg class="w-3.5 h-3.5 text-[#E8C77A] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span class="hidden xs:inline">Login</span>
+        </a>
+
+        <!-- Desktop CTA Button -->
+        <a href="contact.html"
+          class="hidden lg:inline-flex btn-gold header-cta text-xs uppercase tracking-wider py-2 px-3.5 shadow-sm whitespace-nowrap">
+          Reserve Tasting
+        </a>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button id="mobile-menu-toggle" type="button"
+          class="lg:hidden p-1.5 border border-[#B89452] rounded-full text-[#E8C77A] hover:bg-[#E8C77A]/10 focus:outline-none flex-shrink-0"
+          aria-label="Open mobile menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer (Fixed right below header, never scrolls away header) -->
+    <div id="mobile-menu-drawer"
+      class="mobile-drawer-fixed hidden lg:hidden px-5 pt-3 pb-6 transition-all duration-300">
+      <div class="flex justify-between items-center pb-3 border-b border-[#E8C77A]/20">
+        <span class="font-serif text-lg text-[#FFF4D6] mobile-drawer-title">Menu Navigation</span>
+        <button id="mobile-menu-close" class="text-[#E8C77A] p-1.5 rounded-full hover:bg-[#E8C77A]/10"
+          aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col space-y-3 mt-4">
+        <div>
+          <button id="mobile-home-btn"
+            class="w-full flex justify-between items-center py-2 text-sm uppercase tracking-wider text-[#E8C77A] font-semibold border-b border-[#E8C77A]/10 mobile-nav-link">
+            <span>Home</span>
+            <svg class="w-4 h-4 text-[#E8C77A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="mobile-home-submenu"
+            class="hidden pl-4 py-2 space-y-2 bg-[#241008] rounded mt-1 border border-[#E8C77A]/20">
+            <a href="index.html" class="block py-1.5 text-xs uppercase tracking-wider text-[#E8C77A] font-semibold">Home
+              1: Bean-to-Bar Atelier</a>
+            <a href="home-2.html" class="block py-1.5 text-xs uppercase tracking-wider text-[#FFF4D6]">Home 2: Tasting
+              Lounge</a>
+          </div>
+        </div>
+
+        <a href="products.html"
+          class="mobile-nav-link py-2 text-sm uppercase tracking-wider text-[#FFF4D6] border-b border-[#E8C77A]/10">Collections</a>
+        <a href="classes.html"
+          class="mobile-nav-link py-2 text-sm uppercase tracking-wider text-[#FFF4D6] border-b border-[#E8C77A]/10">Workshops</a>
+        <a href="gifting.html"
+          class="mobile-nav-link py-2 text-sm uppercase tracking-wider text-[#FFF4D6] border-b border-[#E8C77A]/10">Gifting</a>
+        <a href="about.html"
+          class="mobile-nav-link py-2 text-sm uppercase tracking-wider text-[#FFF4D6] border-b border-[#E8C77A]/10">About</a>
+        <a href="contact.html"
+          class="mobile-nav-link py-2 text-sm uppercase tracking-wider text-[#FFF4D6] border-b border-[#E8C77A]/10">Contact</a>
+        <a href="login.html"
+          class="mobile-nav-link flex items-center justify-between py-2 text-sm uppercase tracking-wider text-[#E8C77A] font-semibold border-b border-[#E8C77A]/10">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#E8C77A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span>Client Portal Login</span>
+          </span>
+          <span class="text-[10px] tracking-widest px-2 py-0.5 rounded bg-[#E8C77A]/15 text-[#E8C77A] border border-[#E8C77A]/30">VIP</span>
+        </a>
+
+        <a href="contact.html" class="btn-gold w-full text-center text-xs uppercase tracking-wider py-2.5 mt-4">
+          Reserve Tasting Flight
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SECTION 01: GRAND EDITORIAL BEAN-TO-BAR HERO
+         ========================================================================== -->
+    <section
+      class="relative min-h-[90vh] flex items-center bg-[#1A0B06] overflow-hidden py-16 lg:py-24 border-b border-[#E8C77A]/20">
+      <!-- Background Image with Clean Visibility -->
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <img src="assets/images/hero/p1.jpg"
+          alt="Handcrafted artisan dark chocolate slab dusted with cacao nibs and gold powder"
+          class="w-full h-full object-cover object-center hero-bg-image">
+        <div class="absolute inset-0 hero-gradient-overlay"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 space-y-6">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E8C77A]/40 bg-[#241008]/80 backdrop-blur-sm">
+              <span class="w-2 h-2 rounded-full bg-[#E8C77A] animate-pulse"></span>
+              <span class="text-xs uppercase tracking-[0.2em] text-[#E8C77A] font-medium">Single-Origin Bean-to-Bar
+                Atelier</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#FFF4D6] font-normal leading-[1.12]">
+              Where Ancient Cacao Meets <span class="italic text-[#E8C77A]">Haute Confectionery</span>.
+            </h1>
+
+            <p class="text-base sm:text-lg text-[#F7E8C2] max-w-2xl leading-relaxed font-light">
+              Crafted in micro-batches on vintage granite conches. We roast, crack, stone-grind, and temper rare,
+              ethically sourced criollo beans into uncompromising single-origin bars and hand-painted ganache jewels.
+            </p>
+
+            <!-- Dual CTA & Cacao Specs -->
+            <div class="flex flex-wrap gap-4 pt-2 mobile-stack-buttons">
+              <a href="products.html" class="btn-gold text-sm uppercase tracking-wider py-3.5 px-7">
+                Explore Collections
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+              <a href="classes.html" class="btn-outline-gold text-sm uppercase tracking-wider py-3.5 px-7">
+                Book Atelier Workshop
+              </a>
+            </div>
+
+            <!-- Artisan Metrics -->
+            <div class="grid grid-cols-3 gap-6 pt-8 border-t border-[#E8C77A]/20">
+              <div>
+                <span class="font-serif text-2xl sm:text-3xl text-[#E8C77A] font-semibold block">72h</span>
+                <span class="text-xs text-[#D9B866] uppercase tracking-wider">Granite Conching</span>
+              </div>
+              <div>
+                <span class="font-serif text-2xl sm:text-3xl text-[#E8C77A] font-semibold block">100%</span>
+                <span class="text-xs text-[#D9B866] uppercase tracking-wider">Direct-Trade Cacao</span>
+              </div>
+              <div>
+                <span class="font-serif text-2xl sm:text-3xl text-[#E8C77A] font-semibold block">18°C</span>
+                <span class="text-xs text-[#D9B866] uppercase tracking-wider">Climate Salon</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Highlight Card -->
+          <div class="lg:col-span-5">
+            <div class="luxury-card p-6 sm:p-8 bg-[#241008]/90 backdrop-blur-md relative border border-[#E8C77A]/30">
+              <div
+                class="absolute -top-3 -right-3 bg-[#E8C77A] text-[#1A0B06] text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded shadow">
+                Rare Harvest
+              </div>
+
+              <div class="img-zoom-wrapper h-64 mb-6 rounded">
+                <img src="assets/images/products/p2.jpg"
+                  alt="Artisan Chuao Venezuela single origin dark chocolate tablet with golden luster"
+                  class="w-full h-full object-cover">
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-xs uppercase tracking-widest text-[#E8C77A]">Atelier Signature Bar</span>
+                  <span class="text-sm font-semibold text-[#FFF4D6] font-serif">85% Criollo</span>
+                </div>
+                <h3 class="font-serif text-2xl text-[#FFF4D6]">Chuao Valley Rare Pod Reserve</h3>
+                <p class="text-xs text-[#F7E8C2] leading-relaxed">
+                  Notes of wild blackberries, dried tobacco leaves, and a lingering molasses finish. Sourced directly
+                  from Venezuela’s historic coastal sanctuary.
+                </p>
+                <div class="pt-4 flex items-center justify-between border-t border-[#E8C77A]/20">
+                  <span class="text-lg font-serif text-[#E8C77A] font-semibold">$18.50 <span
+                      class="text-xs text-[#D9B866] font-sans">/ 85g bar</span></span>
+                  <a href="products.html"
+                    class="text-xs uppercase tracking-wider text-[#FFF4D6] hover:text-[#E8C77A] flex items-center gap-1 font-semibold">
+                    View Tasting Flight &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 02: THE BEAN-TO-BAR ALCHEMY — EDITORIAL ATELIER CHRONICLE
+         (Completely unique alternating split-flow layout with technical metrology)
+         ========================================================================== -->
+    <section id="alchemy-journey"
+      class="py-20 lg:py-32 bg-[#1A0B06] border-b border-[#E8C77A]/20 relative overflow-hidden">
+      <!-- Subtle Ambient Glow -->
+      <div class="absolute top-1/4 -left-48 w-96 h-96 bg-[#E8C77A]/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-1/4 -right-48 w-96 h-96 bg-[#E8C77A]/5 rounded-full blur-3xl pointer-events-none">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24 space-y-4">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E8C77A]/40 bg-[#241008]/80 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-[#E8C77A]"></span>
+            <span class="text-xs uppercase tracking-[0.25em] text-[#E8C77A] font-semibold">Ancestral Method &bull; Four
+              Acts of Mastery</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFF4D6] leading-tight">
+            The Bean-to-Bar Alchemy
+          </h2>
+          <p class="text-sm sm:text-base text-[#F7E8C2] font-light leading-relaxed max-w-2xl mx-auto">
+            We reject industrially deodorized cocoa liquor. Every tablet produced inside our studio follows a patient,
+            uncompromising four-stage ancestral transformation.
+          </p>
+
+          <!-- Interactive Milestone Navigator Track (Clickable Quick Jump) -->
+          <div class="pt-6 hidden sm:flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 text-xs flex-wrap">
+            <a href="#stage-01"
+              class="px-4 py-2 rounded-full border border-[#E8C77A]/30 bg-[#241008] text-[#E8C77A] hover:bg-[#E8C77A] hover:text-[#1A0B06] transition-all font-medium whitespace-nowrap inline-flex items-center shadow-sm">
+              01 &bull; Direct Harvest
+            </a>
+            <span class="text-[#E8C77A]/40 flex-shrink-0">&rarr;</span>
+            <a href="#stage-02"
+              class="px-4 py-2 rounded-full border border-[#E8C77A]/30 bg-[#241008] text-[#E8C77A] hover:bg-[#E8C77A] hover:text-[#1A0B06] transition-all font-medium whitespace-nowrap inline-flex items-center shadow-sm">
+              02 &bull; Stone Conching
+            </a>
+            <span class="text-[#E8C77A]/40 flex-shrink-0">&rarr;</span>
+            <a href="#stage-03"
+              class="px-4 py-2 rounded-full border border-[#E8C77A]/30 bg-[#241008] text-[#E8C77A] hover:bg-[#E8C77A] hover:text-[#1A0B06] transition-all font-medium whitespace-nowrap inline-flex items-center shadow-sm">
+              03 &bull; Marble Tempering
+            </a>
+            <span class="text-[#E8C77A]/40 flex-shrink-0">&rarr;</span>
+            <a href="#stage-04"
+              class="px-4 py-2 rounded-full border border-[#E8C77A]/30 bg-[#241008] text-[#E8C77A] hover:bg-[#E8C77A] hover:text-[#1A0B06] transition-all font-medium whitespace-nowrap inline-flex items-center shadow-sm">
+              04 &bull; 24K Hand Finishing
+            </a>
+          </div>
+        </div>
+
+        <!-- 4-Stage Alternating Editorial Journey -->
+        <div class="space-y-16 lg:space-y-28 relative">
+
+          <!-- Continuous Central Golden Hairstyle Guide (Desktop) -->
+          <div
+            class="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-[#E8C77A]/30 to-transparent -translate-x-1/2 pointer-events-none">
+          </div>
+
+          <!-- ==================== ACT 01 ==================== -->
+          <div id="stage-01" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            <!-- Visual Column (Image with Floating Pill) -->
+            <div class="lg:col-span-6 relative group">
+              <div class="relative overflow-hidden rounded-xl border border-[#E8C77A]/35 shadow-2xl bg-[#241008]">
+                <img src="assets/images/sections/p3.jpg" alt="Raw ripe cacao pods and dried cacao beans"
+                  class="w-full h-72 sm:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A0B06]/80 via-transparent to-transparent"></div>
+                <!-- Floating Metadata Pill -->
+                <div
+                  class="absolute bottom-4 left-4 right-4 sm:right-auto bg-[#1A0B06]/90 backdrop-blur-md border border-[#E8C77A]/40 px-4 py-2 rounded-lg flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-[#E8C77A]"></span>
+                  <span class="text-xs uppercase tracking-wider text-[#FFF4D6] font-medium">Origin: Ecuador, Madagascar
+                    &amp; Peru</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Narrative & Metrology Column -->
+            <div class="lg:col-span-6 space-y-5 lg:pl-6">
+              <div class="flex items-center gap-3">
+                <span class="font-serif text-3xl sm:text-4xl text-[#E8C77A] font-semibold tracking-wider">01</span>
+                <span class="text-xs uppercase tracking-[0.25em] text-[#D9B866] font-semibold">&mdash; Act I:
+                  Sanctuaries of Origin</span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#FFF4D6] leading-snug">
+                Direct-Trade Harvest &amp; Cedar Fermentation
+              </h3>
+
+              <p class="text-sm sm:text-base text-[#F7E8C2] font-light leading-relaxed">
+                We partner directly with family-run agroforestry sanctuaries in Ecuador, Madagascar, and Peru, paying
+                220% above fair-trade floor prices. Wet pods are cracked open by hand within 2 hours of harvest, and
+                beans are fermented in wild Andean cedar boxes for precisely 6 days to develop complex tropical fruit
+                esters.
+              </p>
+
+              <!-- Technical Metrology Matrix -->
+              <div class="grid grid-cols-3 gap-3 pt-2">
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Floor Premium</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">+220%</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Fermentation</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">6 Days</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Pod Cultivar</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">Pure Criollo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== ACT 02 (Reversed) ==================== -->
+          <div id="stage-02" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            <!-- Narrative & Metrology Column (Order 2 on Mobile, Order 1 on Desktop) -->
+            <div class="lg:col-span-6 space-y-5 lg:pr-6 order-2 lg:order-1">
+              <div class="flex items-center gap-3">
+                <span class="font-serif text-3xl sm:text-4xl text-[#E8C77A] font-semibold tracking-wider">02</span>
+                <span class="text-xs uppercase tracking-[0.25em] text-[#D9B866] font-semibold">&mdash; Act II: Vintage
+                  Melanging</span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#FFF4D6] leading-snug">
+                72-Hour Granite Stone Conching
+              </h3>
+
+              <p class="text-sm sm:text-base text-[#F7E8C2] font-light leading-relaxed">
+                Nibs undergo gentle, slow-drum roasting to release volatile tannins without burning floral top-notes.
+                Transferred to our 1948 vintage Italian granite conches, heavy stone wheels grind the cacao continuously
+                for 72 hours, reducing cocoa solids down to sub-18-micron silkiness with zero soy lecithin or artificial
+                emulsifiers.
+              </p>
+
+              <!-- Technical Metrology Matrix -->
+              <div class="grid grid-cols-3 gap-3 pt-2">
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Conching Time</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">72 Hours</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Particle Size</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">&lt; 18 &mu;m</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Ingredients</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">100% Pure</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Column (Image with Floating Pill) (Order 1 on Mobile, Order 2 on Desktop) -->
+            <div class="lg:col-span-6 relative group order-1 lg:order-2">
+              <div class="relative overflow-hidden rounded-xl border border-[#E8C77A]/35 shadow-2xl bg-[#241008]">
+                <img src="assets/images/sections/p4.jpg" alt="Liquid dark chocolate conching in copper bowl"
+                  class="w-full h-72 sm:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A0B06]/80 via-transparent to-transparent"></div>
+                <!-- Floating Metadata Pill -->
+                <div
+                  class="absolute bottom-4 left-4 right-4 sm:right-auto bg-[#1A0B06]/90 backdrop-blur-md border border-[#E8C77A]/40 px-4 py-2 rounded-lg flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-[#E8C77A]"></span>
+                  <span class="text-xs uppercase tracking-wider text-[#FFF4D6] font-medium">Equipment: 1948 Antique
+                    Granite Melangeur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== ACT 03 ==================== -->
+          <div id="stage-03" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            <!-- Visual Column (Image with Floating Pill) -->
+            <div class="lg:col-span-6 relative group">
+              <div class="relative overflow-hidden rounded-xl border border-[#E8C77A]/35 shadow-2xl bg-[#241008]">
+                <img src="assets/images/sections/p5.jpg"
+                  alt="Artisan tempering melted chocolate on granite slab with palette knife"
+                  class="w-full h-72 sm:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A0B06]/80 via-transparent to-transparent"></div>
+                <!-- Floating Metadata Pill -->
+                <div
+                  class="absolute bottom-4 left-4 right-4 sm:right-auto bg-[#1A0B06]/90 backdrop-blur-md border border-[#E8C77A]/40 px-4 py-2 rounded-lg flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-[#E8C77A]"></span>
+                  <span class="text-xs uppercase tracking-wider text-[#FFF4D6] font-medium">Surface: Cold Carrara Marble
+                    Tabling</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Narrative & Metrology Column -->
+            <div class="lg:col-span-6 space-y-5 lg:pl-6">
+              <div class="flex items-center gap-3">
+                <span class="font-serif text-3xl sm:text-4xl text-[#E8C77A] font-semibold tracking-wider">03</span>
+                <span class="text-xs uppercase tracking-[0.25em] text-[#D9B866] font-semibold">&mdash; Act III:
+                  Thermodynamic Tabling</span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#FFF4D6] leading-snug">
+                Granite Tempering &amp; Beta-V Alignment
+              </h3>
+
+              <p class="text-sm sm:text-base text-[#F7E8C2] font-light leading-relaxed">
+                Tempering is chocolate physics made tactile. Our chocolatiers pour molten chocolate across cold Carrara
+                marble slabs, spreading and agitating it with stainless palette knives. This precise thermal agitation
+                forces the cocoa butter fatty acids into the tightly packed Beta-V crystal polymorph, guaranteeing a
+                clean audible snap and mirror gloss.
+              </p>
+
+              <!-- Technical Metrology Matrix -->
+              <div class="grid grid-cols-3 gap-3 pt-2">
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Thermal Curve</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">45&rarr;27&rarr;31.5&deg;C</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Crystal Form</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">Beta-V (Form 5)</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Finish Polish</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">Mirror Luster</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== ACT 04 (Reversed) ==================== -->
+          <div id="stage-04" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            <!-- Narrative & Metrology Column (Order 2 on Mobile, Order 1 on Desktop) -->
+            <div class="lg:col-span-6 space-y-5 lg:pr-6 order-2 lg:order-1">
+              <div class="flex items-center gap-3">
+                <span class="font-serif text-3xl sm:text-4xl text-[#E8C77A] font-semibold tracking-wider">04</span>
+                <span class="text-xs uppercase tracking-[0.25em] text-[#D9B866] font-semibold">&mdash; Act IV: Haute
+                  Confectionery</span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#FFF4D6] leading-snug">
+                Hand-Finishing &amp; 24K Gold Adornment
+              </h3>
+
+              <p class="text-sm sm:text-base text-[#F7E8C2] font-light leading-relaxed">
+                Cast into custom geometric tablet molds or hand-dipped into botanical silk ganaches. Each confection is
+                elevated with edible 24-karat French gold leaf, hand-flaked Maldon sea salt, and candied orange peel.
+                Every single batch is individually inspected and approved by Ma&icirc;tre Chocolatier Henri Vance before
+                packaging.
+              </p>
+
+              <!-- Technical Metrology Matrix -->
+              <div class="grid grid-cols-3 gap-3 pt-2">
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Gilded Accent</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">24k Gold Leaf</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Salt Mineral</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">Maldon Flakes</span>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#241008] border border-[#E8C77A]/25">
+                  <span class="text-[10px] uppercase tracking-wider text-[#D9B866] block">Batch Sign-off</span>
+                  <span class="font-serif text-lg text-[#E8C77A] font-bold">Maitre Vance</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Column (Image with Floating Pill) (Order 1 on Mobile, Order 2 on Desktop) -->
+            <div class="lg:col-span-6 relative group order-1 lg:order-2">
+              <div class="relative overflow-hidden rounded-xl border border-[#E8C77A]/35 shadow-2xl bg-[#241008]">
+                <img src="assets/images/sections/p6.jpg" alt="Chef finishing truffles with cocoa dust and gold leaf"
+                  class="w-full h-72 sm:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1A0B06]/80 via-transparent to-transparent"></div>
+                <!-- Floating Metadata Pill -->
+                <div
+                  class="absolute bottom-4 left-4 right-4 sm:right-auto bg-[#1A0B06]/90 backdrop-blur-md border border-[#E8C77A]/40 px-4 py-2 rounded-lg flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-[#E8C77A]"></span>
+                  <span class="text-xs uppercase tracking-wider text-[#FFF4D6] font-medium">Standard: 100% Hand-Dipped
+                    &amp; Gilded</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Atelier Standards Guarantee Ribbon (Distinct Callout Footer) -->
+        <div
+          class="mt-20 lg:mt-28 px-6 py-6 sm:px-8 sm:py-7 lg:px-8 lg:py-6 rounded-2xl bg-[#241008]/90 border border-[#E8C77A]/30 backdrop-blur-md shadow-2xl">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-6">
+
+            <!-- 3 Standards Badges (Evenly distributed with dedicated room) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-6 flex-1 w-full min-w-0">
+
+              <div class="flex items-center gap-3 min-w-0">
+                <div
+                  class="w-10 h-10 rounded-full border border-[#E8C77A]/50 flex items-center justify-center flex-shrink-0 bg-[#1A0B06] text-[#E8C77A] shadow-inner">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div class="min-w-0 flex flex-col justify-center">
+                  <h4 class="text-xs uppercase tracking-wider text-[#FFF4D6] font-semibold whitespace-nowrap">100% Direct-Trade</h4>
+                  <span class="text-[11px] text-[#D9B866] leading-tight block truncate">Direct farm-gate sourcing</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 min-w-0">
+                <div
+                  class="w-10 h-10 rounded-full border border-[#E8C77A]/50 flex items-center justify-center flex-shrink-0 bg-[#1A0B06] text-[#E8C77A] shadow-inner">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div class="min-w-0 flex flex-col justify-center">
+                  <h4 class="text-xs uppercase tracking-wider text-[#FFF4D6] font-semibold whitespace-nowrap">72-Hour Slow Conche</h4>
+                  <span class="text-[11px] text-[#D9B866] leading-tight block truncate">Zero artificial emulsifiers</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 min-w-0">
+                <div
+                  class="w-10 h-10 rounded-full border border-[#E8C77A]/50 flex items-center justify-center flex-shrink-0 bg-[#1A0B06] text-[#E8C77A] shadow-inner">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+                <div class="min-w-0 flex flex-col justify-center">
+                  <h4 class="text-xs uppercase tracking-wider text-[#FFF4D6] font-semibold whitespace-nowrap">Micro-Batch Crafted</h4>
+                  <span class="text-[11px] text-[#D9B866] leading-tight block truncate">Under 50kg kettle batch</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CTA Action Button -->
+            <div class="w-full lg:w-auto flex-shrink-0 text-center lg:text-right">
+              <a href="classes.html"
+                class="btn-gold text-xs uppercase tracking-wider py-3.5 px-6 whitespace-nowrap inline-flex items-center justify-center gap-2 font-semibold shadow-md w-full sm:w-auto">
+                Join Masterclass &rarr;
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 03: CURATED MASTER CHOCOLATE COLLECTIONS
+         ========================================================================== -->
+    <section class="py-20 lg:py-28 bg-[#000000] border-b border-[#E8C77A]/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <span class="text-xs uppercase tracking-[0.25em] text-[#E8C77A] font-medium">Seasonal Releases</span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFF4D6] mt-2">Curated Atelier Collections</h2>
+          </div>
+          <a href="products.html"
+            class="btn-outline-gold text-xs uppercase tracking-wider py-3 px-6 self-start md:self-auto">
+            View All Collections
+          </a>
+        </div>
+
+        <!-- 3 Major Product Showcases -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+          <!-- Collection 1: Single Origin Tablets -->
+          <div class="luxury-card bg-[#1A0B06] overflow-hidden group flex flex-col h-full">
+            <div class="img-zoom-wrapper h-72 flex-shrink-0">
+              <img src="assets/images/products/p7.jpg" alt="Neatly arranged single origin dark chocolate bars"
+                class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div class="space-y-3">
+                <span class="text-[11px] uppercase tracking-wider text-[#E8C77A] font-semibold block">Origin
+                  Series</span>
+                <h3
+                  class="font-serif text-2xl text-[#FFF4D6] group-hover:text-[#E8C77A] transition-colors min-h-[3.5rem] flex items-center leading-snug">
+                  Terroir Tablets Collection
+                </h3>
+                <p class="text-xs text-[#F7E8C2] leading-relaxed min-h-[4rem]">
+                  Six pure single-origin tablets spanning Sambirano Valley, Piura Blanco, and Arriba Nacional. No added
+                  vanilla; pure terroir expression.
+                </p>
+              </div>
+              <div class="pt-4 mt-6 border-t border-[#E8C77A]/20 flex items-end justify-between gap-3">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#D9B866] font-medium tracking-wide">Box of 6 Tablets</span>
+                  <span class="text-base font-serif font-bold text-[#E8C77A] leading-tight">$64.00</span>
+                </div>
+                <a href="products.html"
+                  class="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#FFF4D6] hover:text-[#E8C77A] transition-colors py-1 flex-shrink-0">
+                  <span>Explore</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collection 2: Silk Truffles -->
+          <div class="luxury-card bg-[#1A0B06] overflow-hidden group flex flex-col h-full">
+            <div class="img-zoom-wrapper h-72 flex-shrink-0">
+              <img src="assets/images/products/p8.jpg" alt="Artisan round chocolate ganache truffles"
+                class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div class="space-y-3">
+                <span class="text-[11px] uppercase tracking-wider text-[#E8C77A] font-semibold block">Confectionery
+                  Haute</span>
+                <h3
+                  class="font-serif text-2xl text-[#FFF4D6] group-hover:text-[#E8C77A] transition-colors min-h-[3.5rem] flex items-center leading-snug">
+                  Grand Cru Silk Truffles
+                </h3>
+                <p class="text-xs text-[#F7E8C2] leading-relaxed min-h-[4rem]">
+                  Fresh Normandy cream ganache emulsified with Champagne Grand Cru, smoked black tea, and roasted
+                  Tahitian
+                  vanilla bean.
+                </p>
+              </div>
+              <div class="pt-4 mt-6 border-t border-[#E8C77A]/20 flex items-end justify-between gap-3">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#D9B866] font-medium tracking-wide">16 Hand-Rolled Jewels</span>
+                  <span class="text-base font-serif font-bold text-[#E8C77A] leading-tight">$48.00</span>
+                </div>
+                <a href="products.html"
+                  class="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#FFF4D6] hover:text-[#E8C77A] transition-colors py-1 flex-shrink-0">
+                  <span>Explore</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collection 3: Keepsake Gift Box -->
+          <div class="luxury-card bg-[#1A0B06] overflow-hidden group flex flex-col h-full">
+            <div class="img-zoom-wrapper h-72 flex-shrink-0">
+              <img src="assets/images/products/p9.jpg" alt="Luxury black and gold gift box with handcrafted bonbons"
+                class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div class="space-y-3">
+                <span class="text-[11px] uppercase tracking-wider text-[#E8C77A] font-semibold block">Keepsake
+                  Luxury</span>
+                <h3
+                  class="font-serif text-2xl text-[#FFF4D6] group-hover:text-[#E8C77A] transition-colors min-h-[3.5rem] flex items-center leading-snug">
+                  The Sovereign Praline Chest
+                </h3>
+                <p class="text-xs text-[#F7E8C2] leading-relaxed min-h-[4rem]">
+                  Piedmont IGP hazelnut praline, salted butter caramel, and passionfruit bonbons encased in a
+                  handcrafted
+                  wooden keepsake box.
+                </p>
+              </div>
+              <div class="pt-4 mt-6 border-t border-[#E8C77A]/20 flex items-end justify-between gap-3">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#D9B866] font-medium tracking-wide">24-Piece Assortment</span>
+                  <span class="text-base font-serif font-bold text-[#E8C77A] leading-tight">$82.00</span>
+                </div>
+                <a href="products.html"
+                  class="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#FFF4D6] hover:text-[#E8C77A] transition-colors py-1 flex-shrink-0">
+                  <span>Explore</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 04: THE SENSORY TASTING EXPERIENCE
+         (Minimalist, borderless, card-free editorial presentation with breathing room)
+         ========================================================================== -->
+    <section class="py-20 lg:py-28 bg-[#1A0B06] border-b border-[#E8C77A]/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <!-- Visual: Clean Editorial Photograph (No nested card boxes) -->
+          <div class="lg:col-span-6">
+            <div class="relative overflow-hidden rounded-2xl border border-[#E8C77A]/30">
+              <img src="assets/images/sections/p10.jpg"
+                alt="Artisan chocolate tasting platter with origin notes and espresso pairing"
+                class="w-full h-[400px] lg:h-[480px] object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs text-[#FFF4D6]">
+                <span class="tracking-widest uppercase text-[#E8C77A] font-semibold">Salon Flight</span>
+                <span class="text-[#D9B866]">12 Seats Daily &bull; Paris Atelier</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content: Pure Minimal Typography (Zero card boxes, concise text) -->
+          <div class="lg:col-span-6 space-y-7">
+            <div class="space-y-3">
+              <span class="text-xs uppercase tracking-[0.25em] text-[#E8C77A] font-semibold block">The Tasting
+                Salon</span>
+              <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFF4D6] leading-tight font-normal">
+                The Architecture of a Single Taste
+              </h2>
+              <p class="text-sm sm:text-base text-[#F7E8C2] font-light leading-relaxed">
+                Fine cacao possesses over 600 aromatic compounds. Join our maître sommelier for an intimate tasting
+                flight through three rare single-origin terroirs.
+              </p>
+            </div>
+
+            <!-- 3 Minimalist Terroir Lines (Pure text rows, no cards) -->
+            <div class="space-y-4 border-t border-b border-[#E8C77A]/20 py-5">
+              <div class="flex items-baseline justify-between gap-4">
+                <div>
+                  <span class="font-serif text-lg sm:text-xl text-[#FFF4D6] block">01 &bull; Ecuador &bull; Los
+                    R&iacute;os</span>
+                  <span class="text-xs text-[#D9B866]">Jasmine floral, ripe yellow plum &amp; honey</span>
+                </div>
+                <span class="text-xs font-serif text-[#E8C77A] font-semibold tracking-wider flex-shrink-0">75%
+                  Cacao</span>
+              </div>
+
+              <div class="flex items-baseline justify-between gap-4">
+                <div>
+                  <span class="font-serif text-lg sm:text-xl text-[#FFF4D6] block">02 &bull; Madagascar &bull;
+                    Sambirano</span>
+                  <span class="text-xs text-[#D9B866]">Tart red currant, wild berry &amp; cedar</span>
+                </div>
+                <span class="text-xs font-serif text-[#E8C77A] font-semibold tracking-wider flex-shrink-0">72%
+                  Cacao</span>
+              </div>
+
+              <div class="flex items-baseline justify-between gap-4">
+                <div>
+                  <span class="font-serif text-lg sm:text-xl text-[#FFF4D6] block">03 &bull; Venezuela &bull;
+                    Maracaibo</span>
+                  <span class="text-xs text-[#D9B866]">Roasted espresso smoke &amp; dark molasses</span>
+                </div>
+                <span class="text-xs font-serif text-[#E8C77A] font-semibold tracking-wider flex-shrink-0">88%
+                  Cacao</span>
+              </div>
+            </div>
+
+            <!-- Clean Reservation CTA -->
+            <div class="pt-1 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <a href="contact.html" class="btn-gold text-xs uppercase tracking-wider py-3.5 px-8">
+                Reserve Tasting Flight &rarr;
+              </a>
+              <span class="text-xs text-[#D9B866] italic">
+                Tuesday &ndash; Sunday &bull; 45-min guided session
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 05: CRITICAL ACCLAIM & CONNOISSEUR REVERENCE
+         ========================================================================== -->
+    <section class="py-20 lg:py-28 bg-[#000000] border-b border-[#E8C77A]/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+          <span class="text-xs uppercase tracking-[0.25em] text-[#E8C77A] font-medium">Peerless Acclaim</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFF4D6]">Honored by Gastronomes</h2>
+        </div>
+
+        <!-- 3 Prestigious Testimonials / Accolades -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+          <div class="luxury-card testimonial-card p-8 bg-[#1A0B06] flex flex-col justify-between h-full">
+            <div class="flex-1 flex flex-col justify-start space-y-4">
+              <div class="flex gap-1 text-[#E8C77A]">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+              </div>
+              <p
+                class="font-serif text-base sm:text-lg text-[#FFF4D6] italic leading-relaxed flex-1 flex items-start min-h-[110px]">
+                &ldquo;Maison du Cacao delivers the finest expression of pure criollo chocolate in Europe today. The
+                silkiness of their 72-hour conche is unmatched.&rdquo;
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-[#E8C77A]/20 flex-shrink-0">
+              <span class="block text-sm font-semibold text-[#FFF4D6]">Étoile Magazine</span>
+              <span class="text-xs text-[#D9B866]">Grand Chocolatier Guide 2026</span>
+            </div>
+          </div>
+
+          <div class="luxury-card testimonial-card p-8 bg-[#1A0B06] flex flex-col justify-between h-full">
+            <div class="flex-1 flex flex-col justify-start space-y-4">
+              <div class="flex gap-1 text-[#E8C77A]">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+              </div>
+              <p
+                class="font-serif text-base sm:text-lg text-[#FFF4D6] italic leading-relaxed flex-1 flex items-start min-h-[110px]">
+                &ldquo;Our private clients expect rare confections. The custom monogrammed tablets for our international
+                summit the evening.&rdquo;
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-[#E8C77A]/20 flex-shrink-0">
+              <span class="block text-sm font-semibold text-[#FFF4D6]">Julian Laurent</span>
+              <span class="text-xs text-[#D9B866]">Private Wealth Concierge, Zurich</span>
+            </div>
+          </div>
+
+          <div class="luxury-card testimonial-card p-8 bg-[#1A0B06] flex flex-col justify-between h-full">
+            <div class="flex-1 flex flex-col justify-start space-y-4">
+              <div class="flex gap-1 text-[#E8C77A]">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+              </div>
+              <p
+                class="font-serif text-base sm:text-lg text-[#FFF4D6] italic leading-relaxed flex-1 flex items-start min-h-[110px]">
+                &ldquo;Taking the 3-hour tempering masterclass Chef Henri completely transformed how I understand
+                confectionery atelier.&rdquo;
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-[#E8C77A]/20 flex-shrink-0">
+              <span class="block text-sm font-semibold text-[#FFF4D6]">Claire de Montmirail</span>
+              <span class="text-xs text-[#D9B866]">Masterclass postGraduate </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 06: FINAL LUXURY CALL TO ACTION (CTA WITH BUTTON - STRICT REQUIREMENT)
+         ========================================================================== -->
+    <section class="cta-section relative py-24 lg:py-32 bg-[#1A0B06] overflow-hidden border-t border-[#E8C77A]/30">
+      <!-- Background Ambience -->
+      <div class="absolute inset-0 z-0">
+        <img src="assets/images/sections/home-cta-tasting-lounge.jpg"
+          alt="Atmospheric candlelit luxury chocolate tasting lounge"
+          class="cta-bg-image w-full h-full object-cover opacity-60">
+        <div class="cta-gradient-overlay absolute inset-0 bg-gradient-to-t from-black/85 via-[#1A0B06]/50 to-black/85">
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        <div class="w-12 h-12 mx-auto rounded-full border border-[#E8C77A] p-2 bg-[#241008]">
+          <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
+            <circle cx="24" cy="24" r="22" fill="#1A0B06" stroke="#E8C77A" stroke-width="1.5" />
+            <path d="M24 8C17 14 14 22 17 30C19 35 24 40 24 40C24 40 29 35 31 30C34 22 31 14 24 8Z" fill="#35170D"
+              stroke="#E8C77A" stroke-width="1.8" />
+            <path d="M24 8V40" stroke="#E8C77A" stroke-width="1.2" />
+            <circle cx="24" cy="24" r="2" fill="#E8C77A" />
+          </svg>
+        </div>
+
+        <span class="text-xs uppercase tracking-[0.3em] text-[#E8C77A] font-semibold">An Invitation to
+          Connoisseurs</span>
+
+        <h2
+          class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#FFF4D6] max-w-3xl mx-auto leading-tight font-normal">
+          Step Beyond the Counter into the Heart of the Atelier.
+        </h2>
+
+        <p class="text-base sm:text-lg text-[#F7E8C2] max-w-2xl mx-auto font-light leading-relaxed">
+          Whether reserving an intimate private tasting flight, enrolling in our hands-on bean-to-bar academy, or
+          commissioning custom corporate hampers, we invite you to experience chocolate elevated to high art.
+        </p>
+
+        <!-- Final CTA Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 pt-4 mobile-stack-buttons">
+          <a href="contact.html" class="btn-gold text-sm uppercase tracking-wider py-4 px-9 shadow-lg">
+            Reserve Your Private Tasting Flight
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a href="products.html" class="btn-outline-gold text-sm uppercase tracking-wider py-4 px-8">
+            Order Fresh Confections
+          </a>
+        </div>
+
+        <p class="text-xs text-[#D9B866] pt-2">
+          Flagship Atelier open Tuesday &ndash; Sunday &bull; Historic Old Quarters &bull; Courier Delivery Worldwide
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Scroll To Top Button (Icon Only, No Emoji) -->
+  <button id="scroll-to-top" type="button" aria-label="Scroll to top of page">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- Consistent Premium Footer Across All Pages -->
+  <footer class="bg-[#1A0B06] border-t border-[#E8C77A]/25 text-[#F7E8C2] pt-16 pb-12 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#E8C77A]/15">
+
+        <!-- Brand Column -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full border border-[#E8C77A] p-1 bg-[#241008]">
+              <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
+                <circle cx="24" cy="24" r="22" fill="#1A0B06" stroke="#E8C77A" stroke-width="1.5" />
+                <path d="M24 8C17 14 14 22 17 30C19 35 24 40 24 40C24 40 29 35 31 30C34 22 31 14 24 8Z" fill="#35170D"
+                  stroke="#E8C77A" stroke-width="1.8" />
+                <path d="M24 8V40" stroke="#E8C77A" stroke-width="1.2" />
+                <circle cx="24" cy="24" r="2" fill="#E8C77A" />
+              </svg>
+            </div>
+            <div>
+              <span class="font-serif text-xl tracking-wider text-[#FFF4D6] font-semibold block">Maison du Cacao</span>
+              <span class="text-[10px] tracking-[0.2em] text-[#D9B866] uppercase">Atelier &amp; Chocolaterie</span>
+            </div>
+          </div>
+          <p class="text-xs text-[#F7E8C2] leading-relaxed max-w-sm font-light">
+            Rooted in direct-trade single-origin cacao sanctuaries. We craft ancestral bean-to-bar chocolate, delicate
+            silk truffles, and immersive sensory masterclasses.
+          </p>
+          <div class="pt-2 text-xs text-[#E8C77A] flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#E8C77A]"></span>
+            <span>Atelier &amp; Salon Open Today &bull; 10:00 &ndash; 19:00</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Collections Navigation -->
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] text-[#E8C77A] font-semibold mb-4">Collections</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="products.html" class="hover:text-[#E8C77A] transition-colors">Single-Origin Tablets</a></li>
+            <li><a href="products.html" class="hover:text-[#E8C77A] transition-colors">Grand Cru Ganache Truffles</a>
+            </li>
+            <li><a href="products.html" class="hover:text-[#E8C77A] transition-colors">Praline Assortments</a></li>
+            <li><a href="products.html" class="hover:text-[#E8C77A] transition-colors">Bespoke Keepsake Hampers</a></li>
+            <li><a href="products.html" class="hover:text-[#E8C77A] transition-colors">Drinking Chocolates &amp;
+                Nibs</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Studio & Academy -->
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] text-[#E8C77A] font-semibold mb-4">Experiences</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="classes.html" class="hover:text-[#E8C77A] transition-colors">Bean-to-Bar Immersion</a></li>
+            <li><a href="classes.html" class="hover:text-[#E8C77A] transition-colors">Tempering Masterclasses</a></li>
+            <li><a href="contact.html" class="hover:text-[#E8C77A] transition-colors">Private Salon Tastings</a></li>
+            <li><a href="gifting.html" class="hover:text-[#E8C77A] transition-colors">Corporate Gifting Concierge</a>
+            </li>
+            <li><a href="about.html" class="hover:text-[#E8C77A] transition-colors">Direct-Trade Philosophy</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Atelier & Visit -->
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] text-[#E8C77A] font-semibold mb-4">Visit The Atelier</h4>
+          <address class="not-italic text-xs text-[#F7E8C2] space-y-2 font-light">
+            <p>14 Rue des Chocolatiers</p>
+            <p>Historic Artisan Quarter</p>
+            <p class="pt-2 text-[#E8C77A]">concierge@maisonducacao.com</p>
+            <p class="text-[#FFF4D6]">+33 1 42 68 55 00</p>
+          </address>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#D9B866]">
+        <p>&copy; 2026 Maison du Cacao. All rights reserved. Artisan Crafted Bean-to-Bar.</p>
+        <div class="flex gap-6">
+          <a href="about.html" class="hover:text-[#E8C77A] transition-colors">Ethical Direct-Trade</a>
+          <a href="contact.html" class="hover:text-[#E8C77A] transition-colors">Atelier Access</a>
+          <a href="contact.html" class="hover:text-[#E8C77A] transition-colors">Privacy &amp; Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
