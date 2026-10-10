@@ -292,20 +292,22 @@ html.light .mobile-drawer-fixed #mobile-home-submenu a.active {
   padding-left: 1.1rem !important;
 }
 
-html.light #mobile-menu-drawer .btn-gold,
-html.light .mobile-drawer-fixed .btn-gold {
-  background-color: #8A5535 !important;
-  color: #FFFFFF !important;
-  border-color: #8A5535 !important;
+.mobile-drawer-fixed .mobile-menu-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  margin-top: 1rem !important;
+  padding: 0 0.875rem !important;
+  font-size: 0.75rem !important;
   font-weight: 600 !important;
-  box-shadow: 0 4px 14px rgba(138, 85, 53, 0.28) !important;
-}
-
-html.light #mobile-menu-drawer .btn-gold:hover,
-html.light .mobile-drawer-fixed .btn-gold:hover {
-  background-color: #633522 !important;
-  border-color: #633522 !important;
-  color: #FFFFFF !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 /* Refined Luxury Desktop Navigation (Compact, Haute-Chocolaterie Aesthetic) */
@@ -381,8 +383,10 @@ html.light .brand-subtitle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  padding: 0.35rem 0.65rem;
+  min-height: 32px;
+  height: 32px;
+  padding: 0 0.55rem;
+  box-sizing: border-box;
   border-radius: 9999px;
   border: 1px solid #B89452;
   background: rgba(36, 16, 8, 0.7);
@@ -395,12 +399,23 @@ html.light .brand-subtitle {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   white-space: nowrap;
 }
+.theme-toggle-luxury {
+  width: 32px;
+  padding: 0;
+}
+.rtl-toggle-luxury {
+  min-width: 42px;
+}
 @media (max-width: 639px) {
-  .theme-toggle-luxury, .rtl-toggle-luxury {
-    padding: 0.4rem;
-    border-radius: 9999px;
-    width: 32px;
-    height: 32px;
+  .theme-toggle-luxury,
+  .rtl-toggle-luxury {
+    height: 34px;
+  }
+  .theme-toggle-luxury {
+    width: 34px;
+  }
+  .rtl-toggle-luxury {
+    min-width: 42px;
   }
 }
 .theme-toggle-luxury:hover, .rtl-toggle-luxury:hover {
@@ -488,61 +503,78 @@ html.light .rtl-toggle-luxury:hover {
 
 /* Luxury Gold Buttons */
 .btn-gold {
-  background-color: #E8C77A;
-  color: #1A0B06;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 0.75rem 1.65rem;
-  border-radius: 0.375rem;
+  background-color: #E8C77A !important;
+  color: #1A0B06 !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1.2;
+  border-radius: 0.375rem !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid #E8C77A;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(232, 199, 122, 0.2);
+  border: 1px solid #E8C77A !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 14px rgba(232, 199, 122, 0.2) !important;
   text-decoration: none;
 }
 .btn-gold:hover {
-  background-color: #D9B866;
-  border-color: #D9B866;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 199, 122, 0.35);
-  color: #1A0B06;
+  background-color: #D9B866 !important;
+  border-color: #D9B866 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(232, 199, 122, 0.35) !important;
+  color: #1A0B06 !important;
 }
 
 /* Card footer buttons - always keep compact width and generous gap with price */
 .luxury-card .btn-gold,
 .luxury-card .btn-outline-gold {
   width: auto !important;
-  padding: 0.45rem 1rem !important;
-  font-size: 0.72rem !important;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em !important;
   flex-shrink: 0 !important;
 }
 
 .btn-outline-gold {
-  background-color: transparent;
-  color: #E8C77A;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 0.75rem 1.65rem;
-  border-radius: 0.375rem;
+  background-color: transparent !important;
+  color: #E8C77A !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1.2;
+  border-radius: 0.375rem !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid #B89452;
-  transition: all 0.25s ease;
+  border: 1px solid #B89452 !important;
+  transition: all 0.25s ease !important;
+  box-shadow: none !important;
   text-decoration: none;
 }
+.site-header .header-cta {
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 0.875rem !important;
+  font-size: 0.75rem !important;
+}
 .btn-outline-gold:hover {
-  background-color: rgba(232, 199, 122, 0.12);
-  border-color: #E8C77A;
-  color: #FFF4D6;
-  transform: translateY(-2px);
+  background-color: rgba(232, 199, 122, 0.12) !important;
+  border-color: #E8C77A !important;
+  color: #FFF4D6 !important;
+  transform: translateY(-2px) !important;
 }
 
 /* Card Hover Elevation, Strict Equal Height & Perfectly Even Content Alignment */
@@ -561,14 +593,23 @@ html.light .rtl-toggle-luxury:hover {
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* Standalone image card: image stretches 100% to fill container without any bottom gap */
+/* Standalone image card: image fills container evenly without overflow or bottom gap */
+.luxury-card.image-only-card {
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
 .luxury-card > img:only-child,
 .luxury-card.image-only-card > img {
   width: 100% !important;
   height: 100% !important;
-  min-height: 100% !important;
-  flex: 1 1 100% !important;
-  flex-grow: 1 !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
   object-fit: cover !important;
   display: block !important;
   margin: 0 !important;
@@ -825,61 +866,256 @@ html.light body {
   color: #1F0D06 !important;
 }
 
-/* Section backgrounds in light mode */
-html.light section[class*="bg-[#1A0B06]"] {
+/* Section backgrounds in light mode (Exempt hero and cta sections to keep cinematic contrast) */
+html.light section[class*="bg-[#1A0B06]"]:not(.hero-fullscreen):not(.page-hero-standard):not(.cta-section) {
   background-color: #FFFDF9 !important;
 }
-html.light section[class*="bg-[#000000]"] {
+html.light section[class*="bg-[#000000]"]:not(.cta-section) {
   background-color: #FAF5EE !important;
 }
-html.light section[class*="bg-[#241008]"] {
+html.light section[class*="bg-[#241008]"]:not(.cta-section) {
   background-color: #F4EAE0 !important;
 }
-html.light div[class*="bg-[#241008]"] {
+html.light div[class*="bg-[#241008]"]:not(.hero-fullscreen *):not(.page-hero-standard *):not(.cta-section *) {
   background-color: #F5EDE4 !important;
 }
-html.light div[class*="bg-[#1A0B06]"] {
+html.light div[class*="bg-[#1A0B06]"]:not(.hero-fullscreen *):not(.page-hero-standard *):not(.cta-section *) {
   background-color: #FFFDF9 !important;
 }
-html.light div[class*="bg-[#35170D]"] {
+html.light div[class*="bg-[#35170D]"]:not(.hero-fullscreen *):not(.page-hero-standard *) {
   background-color: #EAE0D2 !important;
 }
 
 /* ==========================================================================
-/* ==========================================================================
-   HERO SECTION BACKGROUND PHOTOGRAPHY & LEGIBILITY OVERLAYS
-   Ensures rich, vibrant hero photography is clearly visible across all pages
-   while preserving pristine typography contrast in both light & dark modes.
+   HERO SECTION: VIBRANT BACKGROUND PHOTOGRAPHY & ULTRA-BRIGHT RADIANT TYPOGRAPHY
+   Requirement: Background image is 100% clearly visible, and all text is ultra-bright,
+   crisp, and clearly readable in both Light and Dark modes.
    ========================================================================== */
-.hero-bg-image {
+.hero-fullscreen,
+.page-hero-standard,
+html.light .hero-fullscreen,
+html.light .page-hero-standard {
+  background-color: #1A0B06 !important;
+  position: relative !important;
+}
+
+/* 1. Background image: 100% visible, rich, vibrant and saturated */
+.hero-bg-image,
+html.light .hero-bg-image {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  opacity: 0.58 !important;
-  filter: contrast(1.05) saturate(1.1) !important;
+  opacity: 1 !important;
+  filter: contrast(1.1) saturate(1.15) !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
-.hero-gradient-overlay {
-  background: linear-gradient(
-    to right,
-    rgba(26, 11, 6, 0.82) 0%,
-    rgba(26, 11, 6, 0.52) 48%,
-    rgba(26, 11, 6, 0.22) 100%
-  ) !important;
-}
-
-html.light .hero-bg-image {
-  opacity: 0.48 !important;
-  filter: contrast(1.08) saturate(1.15) !important;
-}
-
+/* 2. Cinematic gradient overlay: Keeps photo clearly visible while giving deep contrast to bright text */
+.hero-gradient-overlay,
 html.light .hero-gradient-overlay {
   background: linear-gradient(
     to right,
-    rgba(255, 253, 249, 0.85) 0%,
-    rgba(255, 253, 249, 0.58) 50%,
-    rgba(255, 253, 249, 0.22) 100%
+    rgba(15, 6, 3, 0.84) 0%,
+    rgba(15, 6, 3, 0.68) 50%,
+    rgba(15, 6, 3, 0.32) 100%
   ) !important;
+}
+
+.page-hero-standard .hero-gradient-overlay,
+html.light .page-hero-standard .hero-gradient-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 6, 3, 0.80) 0%,
+    rgba(15, 6, 3, 0.58) 50%,
+    rgba(15, 6, 3, 0.82) 100%
+  ) !important;
+}
+
+/* 3. Ultra-Bright Headings: Crisp Pure White with deep shadow */
+.hero-fullscreen h1,
+.page-hero-standard h1,
+.hero-fullscreen h2,
+.page-hero-standard h2,
+.hero-fullscreen h3,
+.page-hero-standard h3,
+.hero-fullscreen h4,
+.page-hero-standard h4,
+.hero-fullscreen [class*="text-[#FFF4D6]"],
+.page-hero-standard [class*="text-[#FFF4D6]"],
+html.light .hero-fullscreen h1,
+html.light .page-hero-standard h1,
+html.light .hero-fullscreen h2,
+html.light .page-hero-standard h2,
+html.light .hero-fullscreen h3,
+html.light .page-hero-standard h3,
+html.light .hero-fullscreen h4,
+html.light .page-hero-standard h4,
+html.light .hero-fullscreen [class*="text-[#FFF4D6]"],
+html.light .page-hero-standard [class*="text-[#FFF4D6]"] {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+}
+
+/* 4. Ultra-Bright Gold Accents & Italics: Glowing Champagne Gold */
+.hero-fullscreen span.italic,
+.page-hero-standard span.italic,
+.hero-fullscreen [class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold),
+.page-hero-standard [class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold),
+html.light .hero-fullscreen span.italic,
+html.light .page-hero-standard span.italic,
+html.light .hero-fullscreen [class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold),
+html.light .page-hero-standard [class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold) {
+  color: #FFD56B !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* 5. Ultra-Bright Body & Descriptions: Radiant Warm Ivory */
+.hero-fullscreen p,
+.page-hero-standard p,
+.hero-fullscreen [class*="text-[#F7E8C2]"],
+.page-hero-standard [class*="text-[#F7E8C2]"],
+html.light .hero-fullscreen p,
+html.light .page-hero-standard p,
+html.light .hero-fullscreen [class*="text-[#F7E8C2]"],
+html.light .page-hero-standard [class*="text-[#F7E8C2]"] {
+  color: #FFF9EB !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 6. Ultra-Bright Small Labels & Subtitles */
+.hero-fullscreen [class*="text-[#D9B866]"],
+.page-hero-standard [class*="text-[#D9B866]"],
+html.light .hero-fullscreen [class*="text-[#D9B866]"],
+html.light .page-hero-standard [class*="text-[#D9B866]"] {
+  color: #FEE79A !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* 7. Pill Badges (e.g. Single-Origin Bean-to-Bar Atelier) */
+.hero-fullscreen div[class*="rounded-full"][class*="border"],
+.page-hero-standard div[class*="rounded-full"][class*="border"],
+html.light .hero-fullscreen div[class*="rounded-full"][class*="border"],
+html.light .page-hero-standard div[class*="rounded-full"][class*="border"] {
+  background-color: rgba(36, 16, 8, 0.88) !important;
+  border-color: rgba(255, 213, 107, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.hero-fullscreen span.animate-pulse,
+.page-hero-standard span.animate-pulse,
+html.light .hero-fullscreen span.animate-pulse,
+html.light .page-hero-standard span.animate-pulse {
+  background-color: #FFD56B !important;
+  box-shadow: 0 0 10px #FFD56B !important;
+}
+
+/* 8. Hero Outline Button: Champagne Gold with dark glass fill */
+.hero-fullscreen .btn-outline-gold,
+.page-hero-standard .btn-outline-gold,
+html.light .hero-fullscreen .btn-outline-gold,
+html.light .page-hero-standard .btn-outline-gold {
+  color: #FFD56B !important;
+  border-color: #FFD56B !important;
+  background-color: rgba(36, 16, 8, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+.hero-fullscreen .btn-outline-gold:hover,
+.page-hero-standard .btn-outline-gold:hover,
+html.light .hero-fullscreen .btn-outline-gold:hover,
+html.light .page-hero-standard .btn-outline-gold:hover {
+  background-color: #FFD56B !important;
+  color: #1A0B06 !important;
+  border-color: #FFD56B !important;
+}
+
+/* 9. Hero Highlight Luxury Cards (e.g. Chuao Valley Reserve on Index) */
+.hero-fullscreen .luxury-card,
+.page-hero-standard .luxury-card,
+html.light .hero-fullscreen .luxury-card,
+html.light .page-hero-standard .luxury-card {
+  background-color: rgba(36, 16, 8, 0.90) !important;
+  border-color: rgba(255, 213, 107, 0.4) !important;
+  backdrop-filter: blur(16px) !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.65) !important;
+}
+
+.hero-fullscreen .luxury-card h3,
+.hero-fullscreen .luxury-card h4,
+.hero-fullscreen .luxury-card [class*="text-[#FFF4D6]"],
+html.light .hero-fullscreen .luxury-card h3,
+html.light .hero-fullscreen .luxury-card h4,
+html.light .hero-fullscreen .luxury-card [class*="text-[#FFF4D6]"] {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+.hero-fullscreen .luxury-card p,
+.hero-fullscreen .luxury-card [class*="text-[#E8C77A]/80"],
+html.light .hero-fullscreen .luxury-card p,
+html.light .hero-fullscreen .luxury-card [class*="text-[#E8C77A]/80"] {
+  color: #FFF4D6 !important;
+  text-shadow: none !important;
+}
+
+.hero-fullscreen .luxury-card span[class*="text-[#E8C77A]"],
+html.light .hero-fullscreen .luxury-card span[class*="text-[#E8C77A]"] {
+  color: #FFD56B !important;
+}
+
+.hero-fullscreen .luxury-card a,
+html.light .hero-fullscreen .luxury-card a {
+  color: #FFD56B !important;
+}
+
+.hero-fullscreen .luxury-card a:hover,
+html.light .hero-fullscreen .luxury-card a:hover {
+  color: #FFFFFF !important;
+}
+
+/* 10. Home 2 Interactive Hero Elements */
+.hero-fullscreen .sommelier-pairing-pill,
+html.light .hero-fullscreen .sommelier-pairing-pill {
+  background-color: rgba(26, 11, 6, 0.92) !important;
+  border-color: rgba(255, 213, 107, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.hero-fullscreen .sommelier-pill-subtitle,
+html.light .hero-fullscreen .sommelier-pill-subtitle {
+  color: #FEE79A !important;
+}
+
+.hero-fullscreen .sommelier-pill-text,
+html.light .hero-fullscreen .sommelier-pill-text {
+  color: #FFFFFF !important;
+}
+
+.hero-fullscreen #cacao-percentage-val,
+html.light .hero-fullscreen #cacao-percentage-val {
+  color: #FFD56B !important;
+  text-shadow: 0 0 12px rgba(255, 213, 107, 0.5) !important;
+}
+
+.hero-fullscreen #cacao-taste-profile,
+html.light .hero-fullscreen #cacao-taste-profile {
+  color: #FFF9EB !important;
+}
+
+.hero-fullscreen div[class*="bg-[#241008]"],
+html.light .hero-fullscreen div[class*="bg-[#241008]"],
+.hero-fullscreen div[class*="bg-[#1A0B06]"],
+html.light .hero-fullscreen div[class*="bg-[#1A0B06]"] {
+  background-color: rgba(36, 16, 8, 0.90) !important;
+  border-color: rgba(255, 213, 107, 0.35) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
 /* Ensure general background wallpaper images in other sections don't block content */
@@ -959,16 +1195,34 @@ html.light [class*="border-[#E8C77A]/30"] {
   border-color: rgba(138, 85, 53, 0.25) !important;
 }
 
-/* Light Mode Cacao Spectrum Pill Buttons (Home 2) */
+/* Cacao Spectrum Pill Buttons (Home 2) - Dark Glass with Radiant Gold Text */
+.cacao-pill-btn,
 html.light .cacao-pill-btn {
-  background-color: #FAF5EE !important;
-  color: #110603 !important;
-  border-color: rgba(138, 85, 53, 0.35) !important;
+  background-color: rgba(26, 11, 6, 0.90) !important;
+  color: #FFF4D6 !important;
+  border: 1px solid rgba(255, 213, 107, 0.45) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
 }
+
+.cacao-pill-btn:hover,
+html.light .cacao-pill-btn:hover {
+  background-color: rgba(53, 23, 13, 0.95) !important;
+  color: #FFD56B !important;
+  border-color: #FFD56B !important;
+}
+
+.cacao-pill-btn.active,
+.cacao-pill-btn.bg-\[\#E8C77A\],
+html.light .cacao-pill-btn.active,
 html.light .cacao-pill-btn.bg-\[\#E8C77A\] {
-  background-color: #8A5535 !important;
-  color: #FFFFFF !important;
-  border-color: #8A5535 !important;
+  background-color: #FFD56B !important;
+  color: #1A0B06 !important;
+  font-weight: 700 !important;
+  border-color: #FFD56B !important;
+  box-shadow: 0 0 12px rgba(255, 213, 107, 0.5) !important;
+  text-shadow: none !important;
 }
 
 
@@ -2235,38 +2489,112 @@ html.light #logistics .timeline-telemetry-item svg {
 /* ==========================================================================
    CTA SECTION: VIBRANT LUXURY BACKGROUND IMAGERY (ALL MODES & DEVICES)
    ========================================================================== */
-.cta-section {
+.cta-section,
+html.light .cta-section {
   position: relative !important;
   overflow: hidden !important;
+  background-color: #1A0B06 !important;
 }
 
-.cta-bg-image {
-  opacity: 0.55 !important;
+.cta-section h2 {
+  font-size: clamp(1.75rem, 5.86vw, 3.75rem) !important;
+  line-height: 1.12 !important;
+}
+
+.cta-section p {
+  font-size: clamp(1rem, 1.76vw, 1.125rem) !important;
+  line-height: 1.6 !important;
+}
+
+.cta-section .btn-gold,
+.cta-section .btn-outline-gold {
+  height: auto !important;
+  min-height: 44px !important;
+  padding: 0.75rem 1.25rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.3 !important;
+  text-align: center;
+}
+
+/* 1. CTA Background Photography: 100% visible, rich & saturated in all modes */
+.cta-bg-image,
+html.light .cta-bg-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
   transform: scale(1.02);
   transition: transform 1.2s ease, opacity 0.5s ease;
-  filter: brightness(0.95) contrast(1.1) !important;
+  filter: brightness(0.95) contrast(1.1) saturate(1.15) !important;
   display: block !important;
   visibility: visible !important;
 }
 
-.cta-gradient-overlay {
-  background-image: linear-gradient(to top, rgba(26, 11, 6, 0.88) 0%, rgba(26, 11, 6, 0.5) 50%, rgba(26, 11, 6, 0.88) 100%) !important;
+/* 2. CTA Cinematic Gradient Overlay: Balances full image visibility with high contrast */
+.cta-gradient-overlay,
+html.light .cta-gradient-overlay {
+  background-image: linear-gradient(
+    to top,
+    rgba(15, 6, 3, 0.85) 0%,
+    rgba(15, 6, 3, 0.55) 50%,
+    rgba(15, 6, 3, 0.85) 100%
+  ) !important;
 }
 
-/* Light Mode CTA Section: Rich visible imagery with luminous ivory scrim */
-html.light .cta-bg-image,
-html.light section.cta-section > div:first-child > img,
-html.light section[class*="py-24"][class*="bg-[#1A0B06]"]:last-of-type img {
-  opacity: 0.48 !important;
-  filter: brightness(1.02) contrast(1.12) !important;
-  display: block !important;
-  visibility: visible !important;
+/* 3. CTA Ultra-Bright Typography: Radiant white & gold in both Light & Dark modes */
+.cta-section h2,
+.cta-section h3,
+.cta-section [class*="text-[#FFF4D6]"],
+html.light .cta-section h2,
+html.light .cta-section h3,
+html.light .cta-section [class*="text-[#FFF4D6]"] {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
 }
 
-html.light .cta-gradient-overlay,
-html.light section.cta-section > div:first-child > [class*="bg-gradient-to-t"],
-html.light section[class*="py-24"][class*="bg-[#1A0B06]"]:last-of-type [class*="bg-gradient-to-t"] {
-  background-image: linear-gradient(to top, rgba(255, 253, 249, 0.88) 0%, rgba(255, 253, 249, 0.55) 50%, rgba(255, 253, 249, 0.88) 100%) !important;
+.cta-section p,
+.cta-section [class*="text-[#F7E8C2]"],
+html.light .cta-section p,
+html.light .cta-section [class*="text-[#F7E8C2]"] {
+  color: #FFF9EB !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85) !important;
+}
+
+.cta-section [class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold),
+.cta-section [class*="text-[#D9B866]"],
+.cta-section span[class*="tracking-[0.3em]"],
+html.light .cta-section [class*="text-[#E8C77A]"]:not(.btn-gold):not(.btn-outline-gold),
+html.light .cta-section [class*="text-[#D9B866]"],
+html.light .cta-section span[class*="tracking-[0.3em]"] {
+  color: #FFD56B !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85) !important;
+}
+
+.cta-section .btn-gold {
+  background-color: #FFD56B !important;
+  color: #1A0B06 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 18px rgba(255, 213, 107, 0.35) !important;
+}
+
+.cta-section .btn-outline-gold,
+html.light .cta-section .btn-outline-gold {
+  color: #FFD56B !important;
+  border-color: #FFD56B !important;
+  background-color: rgba(36, 16, 8, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+.cta-section .btn-outline-gold:hover,
+html.light .cta-section .btn-outline-gold:hover {
+  background-color: #FFD56B !important;
+  color: #1A0B06 !important;
+  border-color: #FFD56B !important;
 }
 
 /* ==========================================================================
@@ -2305,22 +2633,121 @@ html.light section[class*="py-24"][class*="bg-[#1A0B06]"]:last-of-type [class*="
    CONTACT FORM CONTROLS & DATE PICKER (HIGH CONTRAST & WHITE CALENDAR ICON)
    ========================================================================== */
 .form-input-luxury {
-  background-color: #1A0B06 !important;
-  color: #FFFFFF !important;
-  border-color: rgba(232, 199, 122, 0.45) !important;
-  font-size: 13px !important;
+  background-color: #21140F !important;
+  color: #FFF4D6 !important;
+  border: 1px solid rgba(217, 184, 102, 0.72) !important;
+  border-radius: 0.375rem !important;
+  min-height: 48px;
+  padding: 0.75rem 0.875rem !important;
+  font-size: 0.8125rem !important;
   font-weight: 500 !important;
+  line-height: 1.5;
+  color-scheme: dark;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .form-input-luxury:focus {
-  border-color: #FFD700 !important;
-  box-shadow: 0 0 0 2px rgba(232, 199, 122, 0.25) !important;
+  border-color: #E8C77A !important;
+  box-shadow: 0 0 0 3px rgba(232, 199, 122, 0.18) !important;
   outline: none !important;
 }
 
 .form-input-luxury::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #C9BBA9 !important;
   opacity: 1 !important;
+}
+
+.contact-inquiry-form {
+  display: block !important;
+  background: #332219 !important;
+  border: 1px solid rgba(217, 184, 102, 0.7) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+.contact-form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(217, 184, 102, 0.28);
+  color: #FFF4D6;
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.contact-form-heading span:last-child {
+  color: #E8C77A;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.contact-form-heading span:last-child span {
+  font-weight: 700;
+}
+
+.contact-inquiry-form textarea.form-input-luxury {
+  min-height: 128px;
+  padding: 0.875rem !important;
+  resize: vertical;
+}
+
+.contact-inquiry-form select.form-input-luxury {
+  padding-right: 2.5rem !important;
+}
+
+.contact-inquiry-form #preferred-date {
+  padding-right: 2.75rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFF4D6' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M16 3v4M8 3v4M3 10h18'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.875rem center !important;
+  background-size: 16px 16px !important;
+}
+
+.contact-inquiry-form #preferred-date::-webkit-calendar-picker-indicator {
+  width: 2.5rem;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.contact-inquiry-form .form-label-luxury {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #E8C77A;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.contact-inquiry-form .form-input-luxury,
+.contact-inquiry-form select.form-input-luxury {
+  background-color: #21140F !important;
+}
+
+html.light .contact-inquiry-form {
+  background: #F7EDE0 !important;
+  border-color: rgba(138, 85, 53, 0.45) !important;
+}
+
+html.light .contact-inquiry-form .form-input-luxury,
+html.light .contact-inquiry-form select.form-input-luxury {
+  background-color: #21140F !important;
+}
+
+html.light .contact-inquiry-form .form-label-luxury {
+  color: #633522 !important;
+}
+
+html.light .contact-form-heading {
+  color: #35170D;
+  border-color: rgba(138, 85, 53, 0.3);
+}
+
+html.light .contact-form-heading span:last-child {
+  color: #633522;
 }
 
 /* Select options styling for clear readability */
@@ -2744,43 +3171,32 @@ html.light .academy-climate-badge .academy-climate-val {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* 3. Sommelier Pairing Floating Pill (home-2.html) */
-.sommelier-pairing-pill {
-  background-color: rgba(20, 8, 4, 0.95);
-  border: 1px solid rgba(232, 199, 122, 0.55);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-.sommelier-pill-subtitle {
-  color: #E8C77A;
-  font-weight: 700;
-}
-
-.sommelier-pill-text {
-  color: #FFF4D6;
-  font-weight: 500;
-}
-
-/* Light Mode: White pill background requires high-contrast deep chocolate typography */
+/* 3. Sommelier Pairing Floating Pill (home-2.html) - Ultra-Bright Radiant Text */
+.sommelier-pairing-pill,
 html.light .sommelier-pairing-pill,
 html.light [class*="sommelier-pairing-pill"] {
-  background-color: #FFFFFF !important;
-  border: 1px solid rgba(138, 85, 53, 0.35) !important;
-  box-shadow: 0 10px 25px rgba(26, 11, 6, 0.15) !important;
+  background-color: rgba(20, 8, 4, 0.95) !important;
+  border: 1px solid rgba(255, 213, 107, 0.55) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
+.sommelier-pill-subtitle,
 html.light .sommelier-pill-subtitle,
 html.light .sommelier-pairing-pill .sommelier-pill-subtitle,
 html.light .sommelier-pairing-pill span {
-  color: #8A5535 !important;
+  color: #FFD56B !important;
   font-weight: 700 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
 }
 
+.sommelier-pill-text,
 html.light .sommelier-pill-text,
 html.light .sommelier-pairing-pill .sommelier-pill-text,
 html.light .sommelier-pairing-pill p {
-  color: #1A0B06 !important;
-  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
 }
 
 /* 4. Universal Safeguard for Dark Image Gradient Overlays in Light Mode */
@@ -2797,25 +3213,11 @@ html.light [class*="bg-gradient-to-t"][class*="from-black"] span:not(.text-black
                   have the exact same height
    ========================================================================== */
 
-/* 1. Home Pages Hero Fullscreen */
-.hero-fullscreen {
-  min-height: calc(100vh - 64px) !important;
-  min-height: calc(100dvh - 64px) !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* 2. All Remaining Pages Unified First Section Height */
+/* Shared hero height keeps the visual rhythm consistent across all pages. */
+.hero-fullscreen,
 .page-hero-standard {
-  min-height: 65vh !important;
-  min-height: max(65vh, 480px) !important;
+  min-height: max(calc(100vh - 64px), 480px) !important;
+  min-height: max(calc(100dvh - 64px), 480px) !important;
   display: flex !important;
   align-items: center !important;
 }
-
-@media (min-width: 1024px) {
-  .page-hero-standard {
-    min-height: 70vh !important;
-  }
-}
-

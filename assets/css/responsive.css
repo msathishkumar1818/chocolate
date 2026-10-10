@@ -24,9 +24,9 @@
 .luxury-card.image-only-card > img {
   width: 100% !important;
   height: 100% !important;
-  min-height: 100% !important;
-  flex: 1 1 100% !important;
-  flex-grow: 1 !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
   object-fit: cover !important;
   display: block !important;
   margin: 0 !important;
@@ -115,6 +115,12 @@
 
 /* Mobile Screens (< 640px: iPhone SE, iPhone 12-16, Google Pixel 7-10) */
 @media (max-width: 639px) {
+  .contact-form-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
   .site-header {
     height: 64px !important;
   }
@@ -135,15 +141,25 @@
     letter-spacing: 0.18em !important;
   }
 
-  .theme-toggle-luxury, .rtl-toggle-luxury {
-    width: 32px !important;
-    height: 32px !important;
-    padding: 0 !important;
+  .theme-toggle-luxury,
+  .rtl-toggle-luxury {
+    height: 34px !important;
     border-radius: 9999px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
+  }
+
+  .theme-toggle-luxury {
+    width: 34px !important;
+    padding: 0 !important;
+  }
+
+  .rtl-toggle-luxury {
+    width: auto !important;
+    min-width: 42px !important;
+    padding: 0 0.45rem !important;
   }
 
   .site-header #mobile-menu-toggle {
@@ -168,16 +184,12 @@
 
   .btn-gold:not(.luxury-card .btn-gold),
   .btn-outline-gold:not(.luxury-card .btn-outline-gold) {
-    padding: 0.65rem 1.15rem !important;
-    font-size: 0.85rem !important;
     width: 100% !important;
   }
 
   .luxury-card .btn-gold,
   .luxury-card .btn-outline-gold {
     width: auto !important;
-    padding: 0.42rem 0.9rem !important;
-    font-size: 0.72rem !important;
     flex-shrink: 0 !important;
   }
 
@@ -202,7 +214,7 @@
 @media (max-width: 1023px) {
   .site-header .nav-link,
   .site-header nav,
-  .site-header .header-cta {
+  .site-header .header-cta:not(.mobile-menu-cta) {
     display: none !important;
   }
 
@@ -212,11 +224,9 @@
     gap: 0.5rem !important;
   }
 
-  .theme-toggle-luxury, .rtl-toggle-luxury {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    padding: 0 !important;
+  .theme-toggle-luxury,
+  .rtl-toggle-luxury {
+    height: 34px !important;
     border-radius: 9999px !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -224,9 +234,15 @@
     flex-shrink: 0 !important;
   }
 
-  .theme-toggle-luxury .theme-badge,
-  .rtl-toggle-luxury .rtl-badge {
-    display: none !important;
+  .theme-toggle-luxury {
+    width: 34px !important;
+    padding: 0 !important;
+  }
+
+  .rtl-toggle-luxury {
+    width: auto !important;
+    min-width: 42px !important;
+    padding: 0 0.45rem !important;
   }
 
   .site-header #mobile-menu-toggle {
@@ -262,9 +278,6 @@
   .luxury-card .btn-gold,
   .luxury-card .btn-outline-gold {
     width: auto !important;
-    padding: 0.35rem 0.65rem !important;
-    font-size: 0.68rem !important;
-    letter-spacing: 0.02em !important;
     flex-shrink: 0 !important;
   }
 
@@ -304,9 +317,25 @@
   .site-header nav {
     gap: 0.65rem !important;
     flex-shrink: 1 !important;
+    height: 34px !important;
+    align-items: center !important;
   }
 
-  .site-header .nav-link {
+  .site-header nav > div {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
+
+  .site-header nav .nav-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1 !important;
     font-size: 0.6875rem !important; /* 11px compact luxury */
     font-weight: 500 !important;
     padding-left: 0.15rem !important;
@@ -316,13 +345,23 @@
   }
 
   .theme-toggle-luxury, .rtl-toggle-luxury {
-    padding: 0.35rem 0.55rem !important;
+    height: 32px !important;
+    padding: 0 0.55rem !important;
     font-size: 0.7rem !important;
+  }
+  .theme-toggle-luxury {
+    width: 32px !important;
+    padding: 0 !important;
+  }
+  .rtl-toggle-luxury {
+    min-width: 42px !important;
   }
 
   .site-header .header-cta {
-    padding: 0.4rem 0.65rem !important;
-    font-size: 0.7rem !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    padding: 0 0.875rem !important;
+    font-size: 0.75rem !important;
   }
 }
 
@@ -543,7 +582,3 @@
     display: none !important;
   }
 }
-
-
-
-
